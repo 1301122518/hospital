@@ -3,7 +3,8 @@
 # ~~~~
 
 # Home page
-GET     /hello                           controllers.Application.index(name:String)
+GET      /                                 controllers.Application.index()
+GET      /hello                            controllers.Application.show(name:String)
 #GET     /products/                       controllers.Products.list()
 #GET     /products/new                    controllers.Products.newProduct()
 #GET     /products/:ean                   controllers.Products.details(ean: String)
