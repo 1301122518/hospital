@@ -17,9 +17,4 @@ public class Patient{
     public Long id;
 
     public String name;
-
-
-
-
-
 }
