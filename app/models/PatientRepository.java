@@ -11,5 +11,5 @@ import javax.inject.Singleton;
  */
 @Named
 @Singleton
-public interface PersonRepository extends CrudRepository<Person, Long> {
+public interface PatientRepository extends CrudRepository<Patient, Long> {
 }

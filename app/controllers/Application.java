@@ -1,7 +1,7 @@
 package controllers;
 
-import models.Person;
-import models.PersonRepository;
+import models.Patient;
+import models.PatientRepository;
 import play.mvc.*;
 
 import javax.inject.Inject;
@@ -15,12 +15,12 @@ import javax.inject.Singleton;
 @Singleton
 public class Application extends Controller {
 
-    private final PersonRepository personRepository;
+    private final PatientRepository patientRepository;
 
     // We are using constructor injection to receive a repository to support our desire for immutability.
     @Inject
-    public Application(final PersonRepository personRepository) {
-        this.personRepository = personRepository;
+    public Application(final PatientRepository patientRepository) {
+        this.patientRepository = patientRepository;
     }
 
     public Result index() {
@@ -30,17 +30,16 @@ public class Application extends Controller {
         // interesting. Spring Data takes care of transactional concerns and the following code is all
         // executed on the same thread (a requirement of the JPA entity manager).
 
-        final Person person = new Person();
-        person.id = 2L;
-        person.firstname = "Ling";
-        person.surname = "Liang";
+        final Patient patient = new Patient();
+        patient.id = 1L;
+        patient.name = "Ling";
 
-        final Person savedPerson = personRepository.save(person);
+        final Patient savedPatient = patientRepository.save(patient);
 
-        final Person retrievedPerson = personRepository.findOne(savedPerson.id);
+        final Patient retrievedPatient = patientRepository.findOne(savedPatient.id);
 
         // Deliver the index page with a message showing the id that was generated.
 
-        return ok(views.html.index.render("Found id: " + retrievedPerson.id + retrievedPerson.firstname + " of person/people"));
+        return ok(views.html.index.render("Found id: " + retrievedPatient.id + retrievedPatient.name + " of person/people"));
     }
 }
