@@ -11,10 +11,12 @@ import javax.persistence.Id;
  * Play Java will synthesise getter and setter methods for us and therefore keep JPA happy (JPA expects them).
  */
 @Entity
-public class Patient{
+public class Person {
     @Id
     @GeneratedValue
     public Long id;
 
-    public String name;
+    public String firstname;
+
+    public String surname;
 }
