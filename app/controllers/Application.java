@@ -1,7 +1,11 @@
 package controllers;
 
+import java.util.Set;
+
 import models.Patient;
 import models.PatientRepository;
+import models.Department;
+import models.DepartmentRepository;
 import play.mvc.*;
 
 import javax.inject.Inject;
@@ -16,11 +20,13 @@ import javax.inject.Singleton;
 public class Application extends Controller {
 
     private final PatientRepository patientRepository;
+    private final DepartmentRepository departmentRepository;
 
     // We are using constructor injection to receive a repository to support our desire for immutability.
     @Inject
-    public Application(final PatientRepository patientRepository) {
+    public Application(final PatientRepository patientRepository, final DepartmentRepository departmentRepository) {
         this.patientRepository = patientRepository;
+        this.departmentRepository = departmentRepository;
     }
 
     public Result index() {
@@ -34,12 +40,15 @@ public class Application extends Controller {
         patient.id = 1L;
         patient.name = "Ling";
 
-        final Patient savedPatient = patientRepository.save(patient);
+//        final Patient savedPatient = patientRepository.save(patient);
 
-        final Patient retrievedPatient = patientRepository.findOne(savedPatient.id);
+        final Patient retrievedPatient = patientRepository.findOne(patient.id);
+        final Department department = departmentRepository.findOne(1L);
+        final Set<Department> departments = retrievedPatient.departments;
 
+//        Integer number = departments.size();
         // Deliver the index page with a message showing the id that was generated.
 
-        return ok(views.html.index.render("Found id: " + retrievedPatient.id + retrievedPatient.name + " of person/people"));
+        return ok(views.html.index.render("Found id: " + retrievedPatient.id + retrievedPatient.name + department.name +  " of person/people"));
     }
 }
