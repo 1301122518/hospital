@@ -46,6 +46,7 @@ public class Application extends Controller {
         Department department = (Department) departments.next();
         // Deliver the index page with a message showing the id that was generated.
 
-        return ok(views.html.index.render("Found id: " + retrievedPatient.id + retrievedPatient.name + department.name + "  位置在:  "+ department.address + " of person/people" ));
+        return ok(views.html.index.render("Found id: " + retrievedPatient.id + retrievedPatient.name  ));
+//        return ok(views.html.index.render("Found id: " + retrievedPatient.id + retrievedPatient.name + department.name + "  位置在:  "+ department.address + " of person/people" ));
     }
 }
