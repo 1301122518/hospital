@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+.title{
+      display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 391px;
+    -webkit-margin-end: 0px;
+}
+.titleImg{
+      display: block;
+   -webkit-margin-before: -2em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 480px;
+    -webkit-margin-end: 0px;
+}
+.p1{
+      display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 391px;
+    -webkit-margin-end: 0px;
+}
+.p2{
+      display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 388px;
+    -webkit-margin-end: 0px;
+}
+.p3{
+   display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 390px;
+    -webkit-margin-end: 0px;
+}
+
+.table2{
+   display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 358px;
+    -webkit-margin-end: 0px;
+}
