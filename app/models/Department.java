@@ -21,4 +21,18 @@ public class Department{
 
     @ManyToMany(mappedBy="departments",fetch=FetchType.EAGER)
     public Set<Patient> patients = new HashSet<Patient>();
+
+    public Department(){};
+
+    public Department(Long id, String name, String address){
+
+        super();
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
+
+    public String toString(){
+        return name;
+    }
 }

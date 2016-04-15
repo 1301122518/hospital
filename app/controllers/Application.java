@@ -21,13 +21,11 @@ import javax.inject.Singleton;
 public class Application extends Controller {
 
     private final PatientRepository patientRepository;
-    private final DepartmentRepository departmentRepository;
 
     // We are using constructor injection to receive a repository to support our desire for immutability.
     @Inject
-    public Application(final PatientRepository patientRepository, final DepartmentRepository departmentRepository) {
+    public Application(final PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
-        this.departmentRepository = departmentRepository;
     }
 
     public Result index() {
@@ -44,12 +42,11 @@ public class Application extends Controller {
 //        final Patient savedPatient = patientRepository.save(patient);
 
         final Patient retrievedPatient = patientRepository.findOne(patient.id);
-        final Department department = departmentRepository.findOne(1L);
         final Iterator departments = retrievedPatient.departments.iterator();
 
-//        Integer number = departments.size();
+        Department department = (Department) departments.next();
         // Deliver the index page with a message showing the id that was generated.
 
-        return ok(views.html.index.render("Found id: " + retrievedPatient.id + retrievedPatient.name + departments.next() +  " of person/people" ));
+        return ok(views.html.index.render("Found id: " + retrievedPatient.id + retrievedPatient.name + department.name + "  位置在:  "+ department.address + " of person/people" ));
     }
 }
