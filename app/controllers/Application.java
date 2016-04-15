@@ -6,7 +6,6 @@ import java.util.Iterator;
 import models.Patient;
 import models.PatientRepository;
 import models.Department;
-import models.DepartmentRepository;
 import play.mvc.*;
 
 import javax.inject.Inject;
