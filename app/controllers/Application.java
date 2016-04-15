@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.Set;
+import java.util.Iterator;
 
 import models.Patient;
 import models.PatientRepository;
@@ -44,11 +45,11 @@ public class Application extends Controller {
 
         final Patient retrievedPatient = patientRepository.findOne(patient.id);
         final Department department = departmentRepository.findOne(1L);
-        final Set<Department> departments = retrievedPatient.departments;
+        final Iterator departments = retrievedPatient.departments.iterator();
 
 //        Integer number = departments.size();
         // Deliver the index page with a message showing the id that was generated.
 
-        return ok(views.html.index.render("Found id: " + retrievedPatient.id + retrievedPatient.name + department.name +  " of person/people"));
+        return ok(views.html.index.render("Found id: " + retrievedPatient.id + retrievedPatient.name + departments.next() +  " of person/people" ));
     }
 }

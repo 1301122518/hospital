@@ -35,7 +35,7 @@ public class Patient{
 
     public String idCardNo;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="patient_department", joinColumns=@JoinColumn(name="patient_id"),
                 inverseJoinColumns=@JoinColumn(name="department_id"))
     public Set<Department> departments = new HashSet<Department>();
