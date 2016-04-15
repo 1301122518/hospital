@@ -6804,7 +6804,7 @@ button.close {
 	width:100%;
 }
 .title_img {
-	height:40px;
+	height:56px;
 	width:100%;
 }
 .img_logo{
@@ -6835,4 +6835,11 @@ button.close {
 }
 .for_p{
    margin:16px 0 6px 36px; 
+}
+
+.print{
+	display: block;
+	float:left;
+	margin-top: 30%;
+	margin-left: 38%;
 }
