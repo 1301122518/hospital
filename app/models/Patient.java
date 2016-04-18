@@ -2,6 +2,7 @@ package models;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ import javax.persistence.FetchType;
  */
 @Entity
 @Table(name="Patient")
-public class Patient{
+public class Patient implements Serializable{
     @Id
     @GeneratedValue
     public Long id;
@@ -36,7 +37,8 @@ public class Patient{
     public String idCardNo;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="patient_department", joinColumns=@JoinColumn(name="patient_id_card_no"),
+    @JoinTable(name="patient_department", joinColumns=@JoinColumn(name="patient_id_card_no",
+            referencedColumnName="idCardNo", unique=true),
                 inverseJoinColumns=@JoinColumn(name="department_id"))
     public Set<Department> departments = new HashSet<Department>();
 
