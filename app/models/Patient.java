@@ -38,9 +38,9 @@ public class Patient implements Serializable{
 
    // @SecondaryTables 多张从表的使用
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="patient_department", joinColumns=@JoinColumn(name="patient_id_card_no",
-            referencedColumnName="idCardNo"),
-                inverseJoinColumns=@JoinColumn(name="department_id",referencedColumnName="id")
+    @JoinTable(name="patient_department",
+            joinColumns=@JoinColumn(name="patient_id_card_no",referencedColumnName="idCardNo"),
+            inverseJoinColumns=@JoinColumn(name="department_id",referencedColumnName="id")
     )
     public Set<Department> departments = new HashSet<Department>();
 
