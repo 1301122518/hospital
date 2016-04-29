@@ -34,8 +34,6 @@ public class Application extends Controller {
         final models.Application apply = (models.Application) applies.next();
 
         return ok(views.html.index.render(retrievedPerson ));
-//        return ok(views.html.index.render(retrievedPerson.name + exam.examItem +
-//                "  位置在:  "+ exam.examAddress + "   签单医生： " + apply.signDoctor ));
     }
 
 //    public Result readCard(){
