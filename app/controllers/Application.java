@@ -33,11 +33,12 @@ public class Application extends Controller {
         final Examination exam = (Examination) exams.next();
         final models.Application apply = (models.Application) applies.next();
 
-        return ok(views.html.index.render(retrievedPerson.name + exam.examItem +
-                    "  位置在:  "+ exam.examAddress + "   签单医生： " + apply.signDoctor ));
+        return ok(views.html.index.render(retrievedPerson ));
+//        return ok(views.html.index.render(retrievedPerson.name + exam.examItem +
+//                "  位置在:  "+ exam.examAddress + "   签单医生： " + apply.signDoctor ));
     }
 
-    public Result readCard(){
-        return ok(views.html.index.render("贾洁的页面。"));
-    }
+//    public Result readCard(){
+//        return ok(views.html.index.render("贾洁的页面。"));
+//    }
 }

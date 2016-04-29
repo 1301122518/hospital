@@ -1,7 +1,9 @@
-@(message: String)
+@(person: Person)
 
 @main("Welcome to Play 2.1") {
     
-    @play20.welcome(message)
-    
+    <p>@person.name</p>
+    <p>@person.age</p>
+    <p>@person.gender</p>
+    <p>@person.marryStatus</p>
 }
