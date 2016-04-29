@@ -50,12 +50,12 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `Person`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Person` (
+CREATE TABLE `PatientPerson` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `firstname` varchar(10) DEFAULT NULL,
   `surname` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
