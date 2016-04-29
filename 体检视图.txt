@@ -1,0 +1,101 @@
+create or replace view 体检人员信息 as
+select d.id as 编码,d.名称 as 名称,e.体检地点 as 地点,d.上级id as 上级科室编号
+  from 体检任务项目 a, 体检任务发送 b, 部门表 d,体检项目目录 e
+ where a.id = b.清单id
+   and d.id(+)= b.执行科室id
+    and e.id=b.体检项目id
+
+    and e.id<>'1065' and b.发送时间>sysdate-30
+
+   and (nvl(b.打印标记,0)=0 )
+
+   order by e.体检地点;
+
+----
+
+create or replace view 科室信息 as
+select distinct d.id as 编码,d.名称 as 名称,e.体检地点 as 地点,d.上级id as 上级科室编号
+  from 体检任务项目 a, 体检任务发送 b, 部门表 d,体检项目目录 e
+ where a.id = b.清单id
+   and d.id(+)= b.执行科室id
+    and e.id=b.体检项目id
+
+    and e.id<>'1065' and b.发送时间>sysdate-30
+
+   and (nvl(b.打印标记,0)=0 )
+
+   order by e.体检地点;
+
+----
+create or replace view 检查申请单信息 as
+select c.身份证号,H.ID AS 开单医生编号,d.id as  申请科室编号,b.执行科室id as 体检科室编号,
+  to_char(nvl(b.发送时间,to_date('1900-1-1 00:00','yyyy-mm-dd hh24:mi')),'yyyy-mm-dd hh24:mi') 申请时间
+  from 体检任务项目 a, 体检任务发送 b, 病人信息 c, 部门表 d,体检项目目录 e, 病人医嘱记录 f,人员表 H
+ where a.id = b.清单id
+   and d.id(+)= a.开单科室id and H.姓名=a.开单医生
+    and b.病人id=c.病人id
+    and  b.执行科室id in (42,842,1505)
+    and e.id=b.体检项目id
+   and f.id(+)=b.医嘱id
+    and e.id<>'1065'
+
+   and (nvl(b.打印标记,0)=0 )
+
+-----
+
+
+create or replace view 检查的项目信息 as
+select distinct e.id as 编码,e.名称 as 名称
+  from 体检项目目录 e;
+
+-----
+
+create or replace view 体检人员科室信息 as
+select distinct d.id as 科室编号,c.身份证号 as 体检人员身份证号,e.id as 体检项目编码
+  from 体检任务项目 a, 体检任务发送 b, 病人信息 c, 部门表 d,体检项目目录 e
+ where a.id = b.清单id
+   and d.id(+)= b.执行科室id
+    and b.病人id=c.病人id
+    and e.id=b.体检项目id
+
+    and e.id<>'1065' and b.发送时间>sysdate-30
+
+   and (nvl(b.打印标记,0)=0 );
+
+
+----
+
+create or replace view 检查申请单信息 as
+select c.身份证号,H.ID AS 开单医生编号,d.id as  申请科室编号,b.执行科室id as 体检科室编号,
+  to_char(nvl(b.发送时间,to_date('1900-1-1 00:00','yyyy-mm-dd hh24:mi')),'yyyy-mm-dd hh24:mi') 申请时间
+  from 体检任务项目 a, 体检任务发送 b, 病人信息 c, 部门表 d,体检项目目录 e, 病人医嘱记录 f,人员表 H
+ where a.id = b.清单id
+   and d.id(+)= a.开单科室id and H.姓名=a.开单医生
+    and b.病人id=c.病人id
+    and  b.执行科室id in (42,842,1505)
+    and e.id=b.体检项目id
+   and f.id(+)=b.医嘱id
+    and e.id<>'1065'
+
+   and (nvl(b.打印标记,0)=0 )
+
+
+-------
+
+create or replace view 检查申请单开单的医生信息 as
+select  distinct a.开单医生,H.ID AS 编号
+
+  from 体检任务项目 a, 体检任务发送 b, 病人信息 c, 部门表 d,体检项目目录 e, 病人医嘱记录 f,人员表 H
+ where a.id = b.清单id
+   and d.id(+)= a.开单科室id
+    and b.病人id=c.病人id and h.姓名=a.开单医生
+    and  b.执行科室id in (42,842,1505)
+    and e.id=b.体检项目id
+   and f.id(+)=b.医嘱id
+    and e.id<>'1065'
+
+   and (nvl(b.打印标记,0)=0 );
+
+
+
+
