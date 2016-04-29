@@ -28,10 +28,13 @@ public class Application extends Controller {
 
         final Person retrievedPerson = personRepository.findOne(1L);
         final Iterator exams = retrievedPerson.exams.iterator();
+        final Iterator applies = retrievedPerson.applies.iterator();
 
         final Examination exam = (Examination) exams.next();
+        final models.Application apply = (models.Application) applies.next();
 
-        return ok(views.html.index.render(retrievedPerson.name + exam.examItem + "  位置在:  "+ exam.examAddress));
+        return ok(views.html.index.render(retrievedPerson.name + exam.examItem +
+                    "  位置在:  "+ exam.examAddress + "   签单医生： " + apply.signDoctor ));
     }
 
     public Result readCard(){

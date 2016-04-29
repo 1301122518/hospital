@@ -55,6 +55,9 @@ public class Person implements Serializable{
     @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
     public Set<Examination> exams = new HashSet<Examination>();
 
+    @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
+    public Set<Application> applies = new HashSet<Application>();
+
     public Person(){};
 
     public Person(Long id, String idCardNo, String organisation, String name,
