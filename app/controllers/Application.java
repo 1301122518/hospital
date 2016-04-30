@@ -55,7 +55,7 @@ public class Application extends Controller {
             exams.add(exam);
         }
 
-        return ok(views.html.index.render(retrievedPerson, exams));
+        return ok(views.html.guide.render(retrievedPerson, exams));
     }
 
     public Result apply() {
