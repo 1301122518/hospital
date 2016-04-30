@@ -20,6 +20,7 @@
                         <td width="11%">年龄：@person.age</td>
                         <td width="25%">体检编号：@person.examID</td>
                         <td width="19%">联系电话：@person.tel</td>
+                        l
                     </tr>
                 </table></td>
             </tr>
@@ -42,195 +43,30 @@
     <tr>
         <td><table width="100%" border="1" cellspacing="0" cellpadding="0">
             <tr>
-                <td width="26%" align="center" valign="top">体检科室</td>
-                <td width="29%" align="center" valign="top">体检地点</td>
-                <td width="37%" align="center" valign="top">体检项目及价格</td>
-                <td width="8%" align="center" valign="top">操作人员</td>
+                <th width="26%">体检科室</th>
+                <th width="29%">体检地点</th>
+                <th width="37%">体检项目及价格</th>
+                <th width="8%">操作人员</th>
             </tr>
+            @for(exam <- exams){
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td>@exam.examItem</td>
+                <td>@exam.examAddress</td>
+                <td>@person.cost</td>
+                <td>@exam.admin</td>
             </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
+            }
+
         </table></td></tr>
     <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-                <td colspan="3"><br><font size="5">血压：__________/__________mmHg</font></td>
+                <td colspan="3"><br><font size="5">血压：__/__mmHg</font></td>
             </tr>
             <tr>
-                <td width="45%"><font size="5">登记人<u></u></font></td>
-                <td width="38%"><font size="5">体检已计价费用：<u></u>元</font></td>
-                <td width="17%"><font size="5">总费用：<u></u>元</font></td>
+                <td width="45%"><font size="5">登记人:__________</font></td>
+                <td width="38%"><font size="5">体检已计价费用：<u>@person.cost</u>元</font></td>
+                <td width="17%"><font size="5">总费用：<u>@person.allCost</u>元</font></td>
             </tr>
             <tr>
                 <td colspan="3" valign="top"><font size="5">备注：1、个人客户请于完成的三个公作日后下午，凭借缴费发票领取报告。<br>
@@ -239,13 +75,4 @@
         </table>
         </td></tr>
 </table>
-
-    <p>@person.name</p>
-    <p>@person.age</p>
-    <p>@person.gender</p>
-    <p>@person.marryStatus</p>
-
-    @for(exam <- exams){
-        <p>@exam.examAddress</p>
-    }
 }

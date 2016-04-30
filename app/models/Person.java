@@ -52,6 +52,8 @@ public class Person implements Serializable{
 
     public Integer allCost;
 
+    public String address;
+
     @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
     public Set<Examination> exams = new HashSet<Examination>();
 
@@ -62,7 +64,7 @@ public class Person implements Serializable{
 
     public Person(Long id, String idCardNo, String organisation, String name,
                   String gender, Integer age, String tel, String marryStatus, String examID,
-                  String examImage, String applyID, String applyImage, Integer cost, Integer allCost){
+                  String examImage, String applyID, String applyImage, Integer cost, Integer allCost,String address){
         this.id = id;
         this.idCardNo = idCardNo;
         this.organisation = organisation;
@@ -77,6 +79,7 @@ public class Person implements Serializable{
         this.applyImage = applyImage;
         this.cost = cost;
         this.allCost = allCost;
+        this.address=address;
     }
 
     public String toString(){

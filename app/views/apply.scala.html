@@ -1,13 +1,49 @@
 @(person: Person, applies:List[models.Application])
 
 @main("Welcome to Play 2.1") {
-    
-    <p>@person.name</p>
-    <p>@person.age</p>
-    <p>@person.gender</p>
-    <p>@person.marryStatus</p>
-
-    @for(apply <- applies){
-        <p>@apply.examAddress   @apply.signDoctor</p>
-    }
+<div class="title"><table width="50%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td width="15%"><img src="@routes.Assets.at("images/hos_1.jpg")" width="90" height="102"></td>
+        <td width="85%"><h1>&nbsp;泸州市人民医院体检申请单</h1></td>
+    </tr>
+    <tr>
+        <td colspan="2"><div class="titleImg">@person.applyImage</div></td>
+    </tr>
+</table>
+</div>
+<div class="p1"><table width="50%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td width="8%" >单位：</td>
+        <td width="92%" >@person.organisation</td>
+    </tr>
+</table>
+</div>
+<div class="p2"><table width="50%"><tr>
+    <td width="21%" align="left" valign="top">姓名：@person.name</td>
+    <td width="15%" align="left" valign="top">性别：@person.gender</td>
+    <td width="19%" align="left" valign="top">年龄：@person.age</td>
+    <td width="45%" align="left" valign="top">联系人电话：@person.tel</td></tr></table></div>
+<div class="p3">
+    <p>联系人地址：@person.address</p>
+</div>
+<div class="table2">
+    <table width="50%" border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <th width="30%" height="31" align="center" valign="middle">申请项目</th>
+            <th width="14%" align="center" valign="middle">开单医生</th>
+            <th width="14%" align="center" valign="middle">申请科室</th>
+            <th width="20%" align="center" valign="middle">申请时间</th>
+            <th width="22%" align="center" valign="middle">体检地点</th>
+        </tr>
+        @for(applies <- applies){
+        <tr>
+            <td height="50" align="left" valign="middle">@applies.applyItem</td>
+            <td align="center" valign="middle">@applies.signDoctor</td>
+            <td align="center" valign="middle">@applies.applyDepartment</td>
+            <td align="left" valign="middle">@applies.applyTime</td>
+            <td align="left" valign="middle">@applies.examAddress</td>
+        </tr>
+        }
+    </table>
+</div>
 }
