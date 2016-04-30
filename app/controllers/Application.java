@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.Iterator;
 
@@ -27,13 +29,55 @@ public class Application extends Controller {
     public Result index() {
 
         final Person retrievedPerson = personRepository.findOne(1L);
-        final Iterator exams = retrievedPerson.exams.iterator();
-        final Iterator applies = retrievedPerson.applies.iterator();
+        final Iterator examSet = retrievedPerson.exams.iterator();
+        final Iterator applieSet = retrievedPerson.applies.iterator();
 
-        final Examination exam = (Examination) exams.next();
-        final models.Application apply = (models.Application) applies.next();
+//        final Examination exam = (Examination) exams.next();
+        final List<Examination> exams = new ArrayList<Examination>();
+//        final models.Application apply = (models.Application) applies.next();
 
-        return ok(views.html.index.render(retrievedPerson ));
+        while(examSet.hasNext()){
+            Examination exam = (Examination) examSet.next();
+            exams.add(exam);
+        }
+
+        return ok(views.html.index.render(retrievedPerson, exams));
+    }
+
+    public Result guide() {
+
+        final Person retrievedPerson = personRepository.findOne(1L);
+        final Iterator examSet = retrievedPerson.exams.iterator();
+        final Iterator applieSet = retrievedPerson.applies.iterator();
+
+//        final Examination exam = (Examination) exams.next();
+        final List<Examination> exams = new ArrayList<Examination>();
+//        final models.Application apply = (models.Application) applies.next();
+
+        while(examSet.hasNext()){
+            Examination exam = (Examination) examSet.next();
+            exams.add(exam);
+        }
+
+        return ok(views.html.index.render(retrievedPerson, exams));
+    }
+
+    public Result apply() {
+
+        final Person retrievedPerson = personRepository.findOne(1L);
+        final Iterator examSet = retrievedPerson.exams.iterator();
+        final Iterator applieSet = retrievedPerson.applies.iterator();
+
+//        final Examination exam = (Examination) exams.next();
+        final List<Examination> exams = new ArrayList<Examination>();
+//        final models.Application apply = (models.Application) applies.next();
+
+        while(examSet.hasNext()){
+            Examination exam = (Examination) examSet.next();
+            exams.add(exam);
+        }
+
+        return ok(views.html.index.render(retrievedPerson, exams));
     }
 
 //    public Result readCard(){

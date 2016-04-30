@@ -1,4 +1,4 @@
-@(person: Person)
+@(person: Person, exams:List[Examination])
 
 @main("Welcome to Play 2.1") {
     
@@ -6,4 +6,8 @@
     <p>@person.age</p>
     <p>@person.gender</p>
     <p>@person.marryStatus</p>
+
+    @for(exam <- exams){
+        <p>@exam.examAddress</p>
+    }
 }
