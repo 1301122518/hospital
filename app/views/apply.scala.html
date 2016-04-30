@@ -1,0 +1,13 @@
+@(person: Person, applies:List[models.Application])
+
+@main("Welcome to Play 2.1") {
+    
+    <p>@person.name</p>
+    <p>@person.age</p>
+    <p>@person.gender</p>
+    <p>@person.marryStatus</p>
+
+    @for(apply <- applies){
+        <p>@apply.examAddress   @apply.signDoctor</p>
+    }
+}

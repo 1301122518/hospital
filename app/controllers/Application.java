@@ -48,11 +48,7 @@ public class Application extends Controller {
 
         final Person retrievedPerson = personRepository.findOne(1L);
         final Iterator examSet = retrievedPerson.exams.iterator();
-        final Iterator applieSet = retrievedPerson.applies.iterator();
-
-//        final Examination exam = (Examination) exams.next();
         final List<Examination> exams = new ArrayList<Examination>();
-//        final models.Application apply = (models.Application) applies.next();
 
         while(examSet.hasNext()){
             Examination exam = (Examination) examSet.next();
@@ -65,19 +61,15 @@ public class Application extends Controller {
     public Result apply() {
 
         final Person retrievedPerson = personRepository.findOne(1L);
-        final Iterator examSet = retrievedPerson.exams.iterator();
-        final Iterator applieSet = retrievedPerson.applies.iterator();
+        final Iterator applySet = retrievedPerson.applies.iterator();
+        final List<models.Application> applies = new ArrayList<models.Application>();
 
-//        final Examination exam = (Examination) exams.next();
-        final List<Examination> exams = new ArrayList<Examination>();
-//        final models.Application apply = (models.Application) applies.next();
-
-        while(examSet.hasNext()){
-            Examination exam = (Examination) examSet.next();
-            exams.add(exam);
+        while(applySet.hasNext()){
+            models.Application apply = (models.Application) applySet.next();
+            applies.add(apply);
         }
 
-        return ok(views.html.index.render(retrievedPerson, exams));
+        return ok(views.html.apply.render(retrievedPerson, applies));
     }
 
 //    public Result readCard(){
