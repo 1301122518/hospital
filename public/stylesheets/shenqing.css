@@ -3,36 +3,36 @@
 .title{
       display: block;
     -webkit-margin-before: 1em;
-    -webkit-margin-after: -1em;
-    -webkit-margin-start: 391px;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
 .titleImg{
       display: block;
    -webkit-margin-before: -2em;
     -webkit-margin-after: -1em;
-    -webkit-margin-start: 480px;
+    -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
 .p1{
       display: block;
     -webkit-margin-before: 1em;
     -webkit-margin-after: -1em;
-    -webkit-margin-start: 391px;
+    -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
 .p2{
       display: block;
     -webkit-margin-before: 1em;
     -webkit-margin-after: -1em;
-    -webkit-margin-start: 388px;
+    -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
 .p3{
    display: block;
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
-    -webkit-margin-start: 390px;
+    -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
 
@@ -40,6 +40,6 @@
    display: block;
     -webkit-margin-before: 0em;
     -webkit-margin-after: 1em;
-    -webkit-margin-start: 358px;
+    -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }

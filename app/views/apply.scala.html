@@ -1,7 +1,7 @@
 @(person: Person, applies:List[models.Application])
 
 @main("Welcome to Play 2.1") {
-<div class="title"><table width="50%" border="0" cellspacing="0" cellpadding="0">
+<div class="title" align="center"><table width="50%" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td width="15%"><img src="@routes.Assets.at("images/hos_1.jpg")" width="90" height="102"></td>
         <td width="85%"><h1>&nbsp;泸州市人民医院体检申请单</h1></td>
@@ -11,22 +11,24 @@
     </tr>
 </table>
 </div>
-<div class="p1"><table width="50%" border="0" cellspacing="0" cellpadding="0">
+<div class="p1" align="center"><table width="50%" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td width="8%" >单位：</td>
         <td width="92%" >@person.organisation</td>
     </tr>
 </table>
 </div>
-<div class="p2"><table width="50%"><tr>
+<div class="p2" align="center"><table width="50%"><tr>
     <td width="21%" align="left" valign="top">姓名：@person.name</td>
     <td width="15%" align="left" valign="top">性别：@person.gender</td>
     <td width="19%" align="left" valign="top">年龄：@person.age</td>
     <td width="45%" align="left" valign="top">联系人电话：@person.tel</td></tr></table></div>
-<div class="p3">
-    <p>联系人地址：@person.address</p>
+<div class="p3" align="center">
+    <table width="50%"><tr>
+        <td width="21%" align="left" valign="top">联系人地址：@person.address</td>
+        </tr></table>
 </div>
-<div class="table2">
+<div class="table2" align="center">
     <table width="50%" border="1" cellpadding="0" cellspacing="0">
         <tr>
             <th width="30%" height="31" align="center" valign="middle">申请项目</th>
@@ -45,5 +47,8 @@
         </tr>
         }
     </table>
+</div><br>
+<div align="center">
+    <input onclick=window.print() style="cursor:hand" type=button value=打印本页 />
 </div>
 }
