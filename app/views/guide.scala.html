@@ -49,9 +49,9 @@
             </tr>
             @for(exam <- exams){
             <tr>
-                <td>@exam.examItem</td>
+                <td>@exam.examDepartment</td>
                 <td>@exam.examAddress</td>
-                <td>@person.cost</td>
+                <td>@exam.examItem&nbsp;@person.cost</td>
                 <td>@exam.admin</td>
             </tr>
             }
