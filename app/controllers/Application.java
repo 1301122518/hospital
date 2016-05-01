@@ -28,20 +28,8 @@ public class Application extends Controller {
 
     public Result index() {
 
-        final Person retrievedPerson = personRepository.findOne("51018419880821006X");
-        final Iterator examSet = retrievedPerson.exams.iterator();
-        final Iterator applieSet = retrievedPerson.applies.iterator();
-
-//        final Examination exam = (Examination) exams.next();
-        final List<Examination> exams = new ArrayList<Examination>();
-//        final models.Application apply = (models.Application) applies.next();
-
-        while(examSet.hasNext()){
-            Examination exam = (Examination) examSet.next();
-            exams.add(exam);
-        }
-
-        return ok(views.html.index.render(retrievedPerson, exams));
+        String welcome = "欢饮来泸州市人民医院参加体检。";
+        return ok(views.html.index.render(welcome));
     }
 
     public Result guide() {
