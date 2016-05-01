@@ -9,6 +9,7 @@ ebeanEnabled := false
 libraryDependencies ++= Seq(
     javaCore,
     javaJpa,
+    "com.hynnet" % "sqljdbc-chs" % "4.0.2206.100",
     "mysql" % "mysql-connector-java" % "5.1.18",
     "org.springframework" % "spring-context" % "4.2.5.RELEASE",
     "javax.inject" % "javax.inject" % "1",
