@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50628
 File Encoding         : 65001
 
-Date: 2016-04-30 00:56:41
+Date: 2016-05-01 20:02:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -46,17 +46,21 @@ CREATE TABLE `examination` (
   `examAddress` varchar(255) DEFAULT NULL,
   `examItem` varchar(30) DEFAULT NULL,
   `admin` varchar(30) DEFAULT NULL,
+  `applyDepartment` varchar(255) DEFAULT NULL,
+  `applyItem` varchar(255) DEFAULT NULL,
+  `applyTime` datetime DEFAULT NULL,
+  `signDoctor` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of examination
 -- ----------------------------
-INSERT INTO `examination` VALUES ('1', '51018419880821006X', '体检部-外科检查', 'A区一楼门诊部外科2诊室', '外科检查', '陈长');
-INSERT INTO `examination` VALUES ('2', '51018419880821006X', '体检部-内科检查', 'A区一楼门诊部外科1诊室', '内科检查', '');
-INSERT INTO `examination` VALUES ('3', '51018419880821006X', '体检部-眼耳鼻喉检查室', 'A区一楼门诊部', '眼科检查', null);
-INSERT INTO `examination` VALUES ('4', '51018419880821006X', '体检部-口腔检查检查室', 'A区一楼门诊部', '口腔检查', null);
-INSERT INTO `examination` VALUES ('5', '51018419880821006X', '妇科检查', 'C区1楼体检部', '妇检', null);
+INSERT INTO `examination` VALUES ('1', '51018419880821006X', '体检部-外科检查', 'A区一楼门诊部外科2诊室', '外科检查', '陈长', null, null, null, null);
+INSERT INTO `examination` VALUES ('2', '51018419880821006X', '体检部-内科检查', 'A区一楼门诊部外科1诊室', '内科检查', '', null, null, null, null);
+INSERT INTO `examination` VALUES ('3', '51018419880821006X', '体检部-眼耳鼻喉检查室', 'A区一楼门诊部', '眼科检查', null, null, null, null, null);
+INSERT INTO `examination` VALUES ('4', '51018419880821006X', '体检部-口腔检查检查室', 'A区一楼门诊部', '口腔检查', null, null, null, null, null);
+INSERT INTO `examination` VALUES ('5', '51018419880821006X', '妇科检查', 'C区1楼体检部', '妇检', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for person
@@ -77,14 +81,15 @@ CREATE TABLE `person` (
   `applyImage` varchar(36) NOT NULL,
   `cost` decimal(10,0) DEFAULT NULL,
   `allCost` decimal(10,0) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`,`applyImage`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of person
 -- ----------------------------
-INSERT INTO `person` VALUES ('1', '51018419880821006X', '四川化工职业技术学院', '陈张', '男', '34', '15228461257', '已婚', '1600234012', null, '1600234012', '', '199', '3000');
-INSERT INTO `person` VALUES ('2', 'Ling', 'Liang', null, null, null, null, null, null, null, null, '', null, null);
+INSERT INTO `person` VALUES ('1', '51018419880821006X', '四川化工职业技术学院', '陈张', '男', '34', '15228461257', '已婚', '1600234012', null, '1600234012', '', '199', '3000', null);
+INSERT INTO `person` VALUES ('2', 'Ling', 'Liang', null, null, null, null, null, null, null, null, '', null, null, null);
 
 -- ----------------------------
 -- Table structure for play_evolutions
