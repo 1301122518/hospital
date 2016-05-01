@@ -44,14 +44,14 @@
             <tr>
                 <th width="26%">体检科室</th>
                 <th width="29%">体检地点</th>
-                <th width="37%">体检项目及价格</th>
+                <th width="37%">体检项目</th>
                 <th width="8%">操作人员</th>
             </tr>
             @for(exam <- exams){
             <tr>
                 <td>@exam.examDepartment</td>
                 <td>@exam.examAddress</td>
-                <td>@exam.examItem&nbsp;@person.cost</td>
+                <td>@exam.examItem</td>
                 <td>@exam.admin</td>
             </tr>
             }
