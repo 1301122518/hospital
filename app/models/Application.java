@@ -36,7 +36,7 @@ public class Application implements Serializable {
     public String examAddress;
 
     @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST})
-    @JoinColumn(name = "idCardNo", referencedColumnName="idCardNo", insertable = false, updatable = false)
+    @JoinColumn(name = "idCardNo", insertable = false, updatable = false)
     public Person person;
 
     public Application(){};

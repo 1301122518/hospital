@@ -28,7 +28,7 @@ public class Application extends Controller {
 
     public Result index() {
 
-        final Person retrievedPerson = personRepository.findOne(1L);
+        final Person retrievedPerson = personRepository.findOne("51018419880821006X");
         final Iterator examSet = retrievedPerson.exams.iterator();
         final Iterator applieSet = retrievedPerson.applies.iterator();
 
@@ -46,7 +46,7 @@ public class Application extends Controller {
 
     public Result guide() {
 
-        final Person retrievedPerson = personRepository.findOne(1L);
+        final Person retrievedPerson = personRepository.findOne("51018419880821006X");
         final Iterator examSet = retrievedPerson.exams.iterator();
         final List<Examination> exams = new ArrayList<Examination>();
 
@@ -60,7 +60,7 @@ public class Application extends Controller {
 
     public Result apply() {
 
-        final Person retrievedPerson = personRepository.findOne(1L);
+        final Person retrievedPerson = personRepository.findOne("51018419880821006X");
         final Iterator applySet = retrievedPerson.applies.iterator();
         final List<models.Application> applies = new ArrayList<models.Application>();
 

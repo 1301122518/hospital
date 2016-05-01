@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.io.Serializable;
 
+import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.Column;
 
 import javax.persistence.Table;
 
@@ -22,11 +25,15 @@ import javax.persistence.FetchType;
 @Table(name="person")
 public class Person implements Serializable{
 
-    @Id
-    @GeneratedValue
-    public Long id;
+//    @Id
+//    @GeneratedValue
+//    public Long ;
 
-    public String idCardNo;
+    @Id
+    @GeneratedValue(generator="uuid")
+    @GenericGenerator(name="uuid", strategy="uuid")
+    @Column(name="idCardNo")
+    public String id;
 
     public String organisation;
 
@@ -62,11 +69,10 @@ public class Person implements Serializable{
 
     public Person(){};
 
-    public Person(Long id, String idCardNo, String organisation, String name,
+    public Person(String id,  String organisation, String name,
                   String gender, Integer age, String tel, String marryStatus, String examID,
                   String examImage, String applyID, String applyImage, Integer cost, Integer allCost,String address){
         this.id = id;
-        this.idCardNo = idCardNo;
         this.organisation = organisation;
         this.name = name;
         this.gender = gender;
@@ -83,7 +89,7 @@ public class Person implements Serializable{
     }
 
     public String toString(){
-        return this.idCardNo + "  " + this.name;
+        return this.id + "  " + this.name;
     }
 
 }
