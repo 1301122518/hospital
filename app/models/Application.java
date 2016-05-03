@@ -14,9 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
-@Table(name="application")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name="view_application")
 public class Application implements Serializable {
 
     @Id

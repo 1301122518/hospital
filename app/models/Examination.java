@@ -11,9 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 
 @Entity
-@Table(name="examination")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name="view_examination")
 public class Examination implements Serializable {
     @Id
     @GeneratedValue

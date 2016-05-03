@@ -16,13 +16,16 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Column;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 import javax.persistence.Table;
 
 import javax.persistence.FetchType;
 
 @Entity
-@Table(name="person")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name="view_person")
 public class Person implements Serializable{
 
 //    @Id
