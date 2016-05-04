@@ -28,7 +28,7 @@ public class Application extends Controller {
 
     public Result index() {
 
-        String welcome = "欢饮来泸州市人民医院参加体检。";
+        String welcome = "欢迎来泸州市人民医院参加体检。";
         return ok(views.html.index.render(welcome));
     }
 
