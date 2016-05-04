@@ -2,6 +2,20 @@
 /* CSS Document */
 
 .print {
- display:none;
+  display: none;
+ color: #000;
+ background: none;
+
 }
 
+
+.print-weight1{
+ width: 100%;
+ padding: 0;
+ margin: 0cm;
+}
+.print-weight2{
+ width: 100%;
+ padding: 0;
+ margin: 0cm;
+}
