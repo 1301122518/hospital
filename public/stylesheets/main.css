@@ -1,60 +1,61 @@
-* {
-    margin: 0px;
-    padding: 0px;
-}
 
-body, html {
+.index-main{
+
+    margin: 100px auto;
+    width: 70%;
+    height: 600px;
     text-align: center;
     font-size: 15px;
     font-family: 微软雅黑;
     background-color: #017EC0;
 }
-
-
-.main {
+.index_main {
     margin: 0 auto;
     width: 1000px;
     height: 400px;
     background-color: white;
 }
 
-.logo {
+.index_logo {
     font-size: 40px;
     height: 100px;
     line-height: 100px;
     letter-spacing: 10px;
     color: white;
 }
-.content {
+.index_content {
     width: 1000px;
-    height: 200px;
+    height: 400px;
 }
 
-.content p {
+.index_content p {
     padding-top: 20px;
     font-size: 20px;
 }
 
-.shouye {
-    margin: 20px 350px;
-    width: 300px;
+.index_shouye {
+    margin: 0 auto;
+    width: 800px;
+    height: 140px;
+
 }
 
-.shouye2 {
-    width: 300px;
+.index_shouye2 {
+    float: left;
+    width: 50%;
     height: 120px;
     line-height: 120px;
-    margin-top: 20px;
+    margin-top: 80px;
     background-color: #017EC0;
     font-size: 20px;
     color: white;
 }
-.shouye2 a{
+.index_shouye2 a{
     font-size: 20px;
     color: white;
 }
 
-.footer {
+.index_footer {
     color: white;
     margin-top: 20px;
 }
