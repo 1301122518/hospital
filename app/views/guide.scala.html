@@ -1,7 +1,7 @@
 @(person: Person, exams:List[Examination])
 
 @main("欢迎来到泸州市人民医院参加体检，祝你身体健康") {
-<table width="60%" height="295" border="0" align="center" cellpadding="0" cellspacing="0" class="print-weight1">
+<table width="60%" height="295" border="0" align="center" cellpadding="0" cellspacing="0" class="print-weight">
     <tr>
         <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="5">
             <tr>
@@ -31,7 +31,7 @@
         </table></td>
     </tr>
     <tr>
-        <td><table width="100%" border="1" cellspacing="0" cellpadding="0">
+        <td><table width="100%" border="1" cellspacing="0" cellpadding="0" style="font-size:19px;">
             <tr>
                 <th width="26%">体检科室</th>
                 <th width="29%">体检地点</th>
@@ -49,18 +49,18 @@
 
         </table></td></tr>
     <tr>
-        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:19px;">
             <tr>
-                <td colspan="3"><br><font size="4"><strong>血压：__/__mmHg</strong></font></td>
+                <td colspan="3"><br><strong>血压：__/__mmHg</strong></td>
             </tr>
             <tr>
-                <td width="30%"><font size="4"><strong>登记人:__________<strong/></font></td>
-                <td width="48%"><font size="4"><strong>体检已计价费用:<u>@person.cost</u>元</strong></font></td>
-                <td width="22%"><font size="4."><strong>总费用:<u>@person.allCost</u>元</strong></font></td>
+                <td width="30%"><strong>登记人:__________</strong></td>
+                <td width="48%"><strong>体检已计价费用:<u>@person.cost</u>元</strong></td>
+                <td width="22%"><strong>总费用:<u>@person.allCost</u>元</strong></td>
             </tr>
             <tr>
-                <td colspan="3" valign="top" ><font size="4">备注：1、个人客户请于完成的三个公作日后下午，凭借缴费发票领取报告。<br>
-                    &nbsp;&nbsp;&nbsp;2、团体客户由单位负责人在体检完成的7个工作日后下午，同意领取报告。</font></td>
+                <td colspan="3" valign="top" >备注：1、个人客户请于完成的三个公作日后下午，凭借缴费发票领取报告。<br>
+                    &nbsp;&nbsp;&nbsp;2、团体客户由单位负责人在体检完成的7个工作日后下午，同意领取报告。</td>
             </tr>
         </table>
         </td></tr>
