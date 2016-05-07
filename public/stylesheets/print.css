@@ -8,11 +8,24 @@
 
 }
 
+#head {
+    display:none;
+}
+
+.print-p3{
+    margin-top:-15px;
+}
+
+.print-weight{
+ width: 21%;
+ padding: 0;
+ margin: -2cm;
+}
 
 .print-weight1{
- width: 100%;
+ width: 21%;
  padding: 0;
- margin: 0cm;
+ margin: -2cm;
 }
 .print-weight2{
  width: 100%;
