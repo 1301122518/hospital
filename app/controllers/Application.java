@@ -35,6 +35,19 @@ public class Application extends Controller {
         return ok(views.html.index.render(welcome));
     }
 
+    public Result guideDemo() {
+
+        final Person retrievedPerson = personRepository.findOne("51018419880821006X");
+        final Iterator examSet = retrievedPerson.exams.iterator();
+        final List<Examination> exams = new ArrayList<Examination>();
+
+        while(examSet.hasNext()){
+            Examination exam = (Examination) examSet.next();
+            exams.add(exam);
+        }
+
+        return ok(views.html.guide.render(retrievedPerson, exams));
+    }
     public Result guide() {
 
         DynamicForm values = Form.form().bindFromRequest();

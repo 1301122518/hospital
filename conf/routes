@@ -6,6 +6,7 @@
 # will call on the GlobalSettings.getController method to resolve the actual controller instance.
 GET     /                                @controllers.Application.index
 POST    /guide                           @controllers.Application.guide
+GET     /guideDemo                       @controllers.Application.guideDemo
 GET     /apply                           @controllers.Application.apply
 #GET     /readCard                           @controllers.Application.readCard
 
