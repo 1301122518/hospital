@@ -68,4 +68,15 @@
 <div class="print" align="center">
     <input onclick=window.print() style="cursor:hand" type=button value=打印本页 />
 </div>
+<script type="text/javascript">
+    var t = 10;//设定跳转的时间
+    setInterval("refer()",1000); //启动1秒定时
+    function refer(){
+            if (t == 0) {
+                location = "http://127.0.0.1:9000/apply"; //#设定跳转的链接地址
+            }
+            t--; // 计数器递减
+    }
+    setTimeout("alert('如果您有需要签字的项目，请您打印申请表。(10秒后自动跳转到申请页面)')", 3000)
+</script>
 }
