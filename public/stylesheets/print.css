@@ -17,15 +17,9 @@
 }
 
 .print-weight{
- width: 21%;
+ width: 100%;
  padding: 0;
- margin: -2cm;
-}
-
-.print-weight1{
- width: 21%;
- padding: 0;
- margin: -2cm;
+ margin: 0cm;
 }
 .print-weight2{
  width: 100%;
