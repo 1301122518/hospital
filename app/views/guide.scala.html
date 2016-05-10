@@ -1,4 +1,4 @@
-@(person: Person, exams:List[Examination])
+@(person: Person, exams:List[Examination], hasApply:Integer)
 
 @main("欢迎来到泸州市人民医院参加体检，祝你身体健康") {
 <table width="60%" height="295" border="0" align="center" cellpadding="0" cellspacing="0" class="print-weight">
@@ -69,6 +69,9 @@
     <input onclick=window.print() style="cursor:hand" type=button value=打印本页 />
 </div>
 <script type="text/javascript">
+
+    var hasApply = @hasApply;
+    if(hasApply==0){
     var t = 10;//设定跳转的时间
     setInterval("refer()",1000); //启动1秒定时
     function refer(){
@@ -78,5 +81,6 @@
             t--; // 计数器递减
     }
     setTimeout("alert('如果您有需要签字的项目，请您打印申请表。(10秒后自动跳转到申请页面)')", 3000)
+    }
 </script>
 }

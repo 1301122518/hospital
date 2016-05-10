@@ -41,12 +41,14 @@ public class Application extends Controller {
         final Iterator examSet = retrievedPerson.exams.iterator();
         final List<Examination> exams = new ArrayList<Examination>();
 
+        final Integer hasApply = retrievedPerson.applies.size();
+
         while(examSet.hasNext()){
             Examination exam = (Examination) examSet.next();
             exams.add(exam);
         }
 
-        return ok(views.html.guide.render(retrievedPerson, exams));
+        return ok(views.html.guide.render(retrievedPerson, exams, hasApply));
     }
     public Result guide() {
 
@@ -61,12 +63,14 @@ public class Application extends Controller {
         final Iterator examSet = retrievedPerson.exams.iterator();
         final List<Examination> exams = new ArrayList<Examination>();
 
+        final Integer hasApply = retrievedPerson.applies.size();
+
         while(examSet.hasNext()){
             Examination exam = (Examination) examSet.next();
             exams.add(exam);
         }
 
-        return ok(views.html.guide.render(retrievedPerson, exams));
+        return ok(views.html.guide.render(retrievedPerson, exams, hasApply));
     }
 
     public Result apply() {
@@ -83,7 +87,4 @@ public class Application extends Controller {
         return ok(views.html.apply.render(retrievedPerson, applies));
     }
 
-//    public Result readCard(){
-//        return ok(views.html.index.render("贾洁的页面。"));
-//    }
 }
