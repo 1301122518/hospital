@@ -8,11 +8,9 @@
 	font-family:"方正宋体-人口信息";}
 .idCardInfo{
     margin-top:40px;
-    margin-bottom:40px;
+    margin-bottom:30px;
 }
 </style>
-<br/>
-<br/>
 <br/>
 <br/>
 <br/>
@@ -32,7 +30,6 @@
     >
     </OBJECT>
     <body  onbeforeunload="Unload()" >
-
     <form name=tcard action="http://127.0.0.1:9000/guide" method="post">
         <table class="idCardInfo">
             <tr>
@@ -58,13 +55,6 @@
         <!--<a name="praPass" href=""><button>打印体检单</button></a>-->
         <button type="submit">打印体检单</button>
     </form>
-
-    <table width="280" border="0">
-        <tr>
-            <td><input type="button" value="打开机具"         style="width:140px;"    name="myopen"    onclick="myopen_onclick()"   /></td>
-            <td><input type="button" value="开始读卡"         style="width:140px;"    name="beginread" onClick="beginread_onclick()"/></td>
-        </tr>
-    </table>
     </body>
 
     <script for=idcard event="Readed()">
@@ -80,42 +70,40 @@
       //window.close();
 </script>
 
-    <SCRIPT>
-
-	function myopen_onclick(){
+<SCRIPT>
 	var  pp ;
 	pp=rdcard.openport();
-        //alert(pp);
 	if(pp==0)
-        {
-	    document.getElementsByName("tResult")[0].innerHTML="连接身份证扫描仪成功";
-        }
-        else
-        {
-            document.getElementsByName("tResult")[0].innerHTML="连接身份证扫描仪失败: "+pp;
-        }
+    {
+        document.getElementsByName("tResult")[0].innerHTML="连接身份证扫描仪成功";
+    }
+    else
+    {
+        document.getElementsByName("tResult")[0].innerHTML="连接身份证扫描仪失败: "+pp;
     }
 
-        function Unload(){
-		MyClose_onclick();
-		//alert("Page is Close");
-	}
 
-
-	function beginread_onclick(){
-
-	var  pp
 	pp=rdcard.ReadCard2();
 	if(pp==0)
-        {
-	    document.getElementsByName("tResult")[0].innerHTML="请将身份证放到感应区...";
-        }
-        else
-        {
-            document.getElementsByName("tResult")[0].innerHTML="读取信息失败: "+pp;
-        }
-	}
+    {
+        document.getElementsByName("tResult")[0].innerHTML="请将身份证放到感应区...";
+    }
+    else
+    {
+        document.getElementsByName("tResult")[0].innerHTML="读取信息失败: "+pp;
+    }
 
+    function getinfo_onclick(){
+        var  r1,r2;
+        document.getElementsByName("tName")[0].value=rdcard.NameS;
+        document.getElementsByName("tcardID")[0].value=rdcard.CardNo;
+        document.getElementsByName("tAddr")[0].value=rdcard.Address;
+
+        //document.getElementsByName("tResult")[0].value=idcard.sResultMsg;
+        //document.all['photo'].src  = 'data:image/jpeg;base64,' + rdcard.JPGBuffer;
+
+        document.getElementsByName("tResult")[0].innerHTML="成功读取身份证信息";
+    }
 
 	function showjpgIE6(){
         //alert('读照片成功');
@@ -131,20 +119,10 @@
         document.all['photo'].src  = 'data:image/jpeg;base64,' + rdcard.JPGBuffer;
     }
 
-
-     function getinfo_onclick(){
-	var  r1,r2;
-	document.getElementsByName("tName")[0].value=rdcard.NameS;
-	document.getElementsByName("tcardID")[0].value=rdcard.CardNo;
-	document.getElementsByName("tAddr")[0].value=rdcard.Address;
-
-        //document.getElementsByName("tResult")[0].value=idcard.sResultMsg;
-        //document.all['photo'].src  = 'data:image/jpeg;base64,' + rdcard.JPGBuffer;
-
-        document.getElementsByName("tResult")[0].innerHTML="成功读取身份证信息";
-
-     }
-
+    function Unload(){
+		MyClose_onclick();
+		//alert("Page is Close");
+	}
 
 	function MyClear_onclick(){
         var  pp
