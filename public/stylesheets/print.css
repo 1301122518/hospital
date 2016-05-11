@@ -28,7 +28,6 @@
 }
 
 .person-info{
-    margin-right : 2.1%;
 }
 
 .inline{
@@ -46,4 +45,35 @@
 
 .print-info{
     width:78%;
+}
+
+.p1{
+      display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    margin-bottom: -8px;
+}
+.p2{
+      display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    margin-left:-4px;
+    margin-bottom: -8px;
+}
+.p3{
+   display: block;
+   width:50%;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    margin-left:-1px;
+}
+
+.exam-item td, .apply-item td{
+    padding : 4px;
 }

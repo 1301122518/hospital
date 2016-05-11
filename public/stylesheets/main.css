@@ -74,12 +74,12 @@
     margin-top: 20px;
 }
 
-.exam-item td{
+.exam-item td, .apply-item td{
     padding : 4px;
 }
 
 .person-info{
-    margin-right : 6.1%;
+    margin-right : 4.6%;
 }
 
 .inline{
