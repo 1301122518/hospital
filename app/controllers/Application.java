@@ -37,7 +37,10 @@ public class Application extends Controller {
 
     public Result guideDemo() {
 
-        final Person retrievedPerson = personRepository.findOne("51018419880821006X");
+        //String testID = "51018419880821006X";
+        String testID = "110108199611240188";
+
+        final Person retrievedPerson = personRepository.findOne(testID);
         final Iterator examSet = retrievedPerson.exams.iterator();
         final List<Examination> exams = new ArrayList<Examination>();
 
