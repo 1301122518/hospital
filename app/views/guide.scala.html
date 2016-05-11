@@ -5,15 +5,23 @@
     <tr>
         <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="5">
             <tr>
-                <td colspan="2" align="center" valign="top">泸州市人民医院体检单</td>
+                <td colspan="2" align="center" valign="top"><h1>泸州市人民医院体检单</h1></td>
             </tr>
             <tr>
                 <td width="69%" valign="top">单位：@person.organisation</td>
                 <td width="31%" align="center" valign="middle">门诊号：@person.examID</td>
             </tr>
             <tr>
-                <td colspan="2"><hr>姓名:@person.name 性别:@person.gender 婚姻状况:@person.marryStatus
-                    年龄:@person.age 体检编号:@person.examID 联系电话:@person.tel<hr></td>
+                <td colspan="2" >
+                    <hr>
+                    <span class="person-info">姓名:@person.name</span>
+                    <span class="person-info">性别:@person.gender</span>
+                    <span class="person-info">婚姻状况:@person.marryStatus</span>
+                    <span class="person-info">年龄:@person.age</span>
+                    <span class="person-info">体检编号:@person.examID</span>
+                    <span>联系电话:@person.tel</span>
+                    <hr>
+                </td>
             </tr>
             <tr>
                 <td><font size="2">温馨提示:</font><font size="4"><strong>若有采血项目，请先采学再做其他的检查！！！</strong></font>
@@ -39,7 +47,7 @@
                 <th width="8%">操作人员</th>
             </tr>
             @for(exam <- exams){
-            <tr>
+            <tr class="exam-item">
                 <td>@exam.examDepartment</td>
                 <td>@exam.examAddress</td>
                 <td>@exam.examItem</td>

@@ -21,6 +21,7 @@
     -webkit-margin-after: -1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+    margin-bottom: -8px;
 }
 .p2{
       display: block;
@@ -28,6 +29,8 @@
     -webkit-margin-after: -1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+    margin-left:-4px;
+    margin-bottom: -8px;
 }
 .p3{
    display: block;
@@ -37,6 +40,7 @@
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+    margin-left:-1px;
 }
 
 .table2{
