@@ -67,12 +67,14 @@
 </table><br><br>
 <div class="print" align="center">
     <input onclick=window.print() style="cursor:hand" type=button value=打印本页 />
+    @if(hasApply!=0){
     <button onclick="{location.href='/apply/@person.id'}" style="cursor:hand">打印申请单</button>
+    }
 </div>
 <script type="text/javascript">
 
     var hasApply = @hasApply;
-    if(hasApply==0){
+    if(hasApply!=0){
     <!--var t = 10;//设定跳转的时间-->
     <!--setInterval("refer()",1000); //启动1秒定时-->
     <!--function refer(){-->
@@ -81,7 +83,7 @@
             <!--}-->
             <!--t&#45;&#45;; // 计数器递减-->
     <!--}-->
-    setTimeout("alert('您有需要签字的项目，请您在答应完指引单后，打印申请表。')", 3000)
+    setTimeout("alert('您有需要签字的项目，请您在答应完指引单后，打印申请表。')", 1000)
     }
 </script>
 }
