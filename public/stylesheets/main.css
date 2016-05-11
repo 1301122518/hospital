@@ -82,3 +82,10 @@
     margin-right : 37px;
 }
 
+.inline{
+    line-height:24px;
+}
+
+.health-info{
+    line-height:43px;
+}
