@@ -79,7 +79,7 @@
 }
 
 .person-info{
-    margin-right : 37px;
+    margin-right : 6.1%;
 }
 
 .inline{
@@ -88,4 +88,9 @@
 
 .health-info{
     line-height:43px;
+}
+
+.info-4{
+    display:block;
+    margin-top:-1.3%;
 }

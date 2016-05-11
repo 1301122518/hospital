@@ -26,3 +26,24 @@
  padding: 0;
  margin: 0cm;
 }
+
+.person-info{
+    margin-right : 2.1%;
+}
+
+.inline{
+    line-height:24px;
+}
+
+.health-info{
+    line-height:43px;
+}
+
+.info-4{
+    display:block;
+    margin-top:-6.3%;
+}
+
+.print-info{
+    width:78%;
+}
