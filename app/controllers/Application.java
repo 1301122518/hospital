@@ -76,9 +76,9 @@ public class Application extends Controller {
         return ok(views.html.guide.render(retrievedPerson, exams, hasApply));
     }
 
-    public Result apply() {
+    public Result apply(String idCardNo) {
 
-        final Person retrievedPerson = personRepository.findOne("51018419880821006X");
+        final Person retrievedPerson = personRepository.findOne(idCardNo);
         final Iterator applySet = retrievedPerson.applies.iterator();
         final List<models.Application> applies = new ArrayList<models.Application>();
 
