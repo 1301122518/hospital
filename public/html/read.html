@@ -100,9 +100,18 @@
         document.getElementsByName("tAddr")[0].value=rdcard.Address;
 
         //document.getElementsByName("tResult")[0].value=idcard.sResultMsg;
-        //document.all['photo'].src  = 'data:image/jpeg;base64,' + rdcard.JPGBuffer;
+        //document.all['photo'].src  = 'data:image/jpeg;base64,' + rdcard.JPGBuffer; document.getElementsByName("tResult")[0].innerHTML="成功读取身份证信息"; }
 
-        document.getElementsByName("tResult")[0].innerHTML="成功读取身份证信息";
+    rdcard.strSavePath= "c:\\aa";
+    pp = rdcard.SaveCardPic("c:\\cardh.jpg","c:\\card.jpg",3);
+
+    if(pp==0)
+    {
+      document.getElementsByName("tResult")[0].innerHTML="身份证图片保存成功";
+    }
+    else
+    {
+        document.getElementsByName("tResult")[0].innerHTML="身份证图片保存失败: "+pp;
     }
 
 	function showjpgIE6(){
