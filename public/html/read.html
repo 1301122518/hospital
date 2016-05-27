@@ -58,16 +58,7 @@
     </body>
 
     <script for=idcard event="Readed()">
-      //alert('Readed');
       getinfo_onclick();
-</script>
-
-    <script for=idcard event="Closed()">
-      //window.close();
-</script>
-
-    <script for=idcard event="Opened()">
-      //window.close();
 </script>
 
 <SCRIPT>
@@ -82,7 +73,6 @@
         document.getElementsByName("tResult")[0].innerHTML="连接身份证扫描仪失败: "+pp;
     }
 
-
 	pp=rdcard.ReadCard2();
 	if(pp==0)
     {
@@ -94,63 +84,18 @@
     }
 
     function getinfo_onclick(){
-        var  r1,r2;
         document.getElementsByName("tName")[0].value=rdcard.NameS;
         document.getElementsByName("tcardID")[0].value=rdcard.CardNo;
         document.getElementsByName("tAddr")[0].value=rdcard.Address;
 
-        //document.getElementsByName("tResult")[0].value=idcard.sResultMsg;
-        //document.all['photo'].src  = 'data:image/jpeg;base64,' + rdcard.JPGBuffer; document.getElementsByName("tResult")[0].innerHTML="成功读取身份证信息"; }
+        pp = rdcard.SaveCardPic("c:\\cardh.jpg","c:\\card.jpg",3);
 
-    rdcard.strSavePath= "c:\\aa";
-    pp = rdcard.SaveCardPic("c:\\cardh.jpg","c:\\card.jpg",3);
-
-    if(pp==0)
-    {
-      document.getElementsByName("tResult")[0].innerHTML="身份证图片保存成功";
-    }
-    else
-    {
-        document.getElementsByName("tResult")[0].innerHTML="身份证图片保存失败: "+pp;
-    }
-
-	function showjpgIE6(){
-        //alert('读照片成功');
-        document.getElementsByName("photo")[0].src = "file:///C|/null.JPEG";
-
-	if(rdcard.PhotoPath == "")
-	  document.getElementsByName("photo")[0].src = "file:///C|/null.JPEG";
-	else
-	  document.getElementsByName("photo")[0].src = rdcard.PhotoPath	;
-    }
-	function showjpgIE8(){
-        //alert('读照片成功');
-        document.all['photo'].src  = 'data:image/jpeg;base64,' + rdcard.JPGBuffer;
-    }
-
-    function Unload(){
-		MyClose_onclick();
-		//alert("Page is Close");
-	}
-
-	function MyClear_onclick(){
-        var  pp
-        pp = rdcard.ClearAll();
-        getinfo_onclick();
-        document.getElementsByName("tsNum")[0].value="";
-	if(pp==0)
-        {
-	    document.getElementsByName("tResult")[0].value="清空成功";
+        if(pp==0){
+            document.getElementsByName("tResult")[0].innerHTML="身份证信息读取成功";
+        }else{
+            document.getElementsByName("tResult")[0].innerHTML="身份证图片保存失败: "+pp;
         }
-        else
-        {
-            document.getElementsByName("tResult")[0].value="清空失败: "+pp;
-        }
-	}
+     }
 
-	function window_onUnload(){
-		  rdcard.DeleteOutputFile();
-		  rdcard.DeleteAllPicture();
-	}
 </SCRIPT>
 </HTML>
