@@ -24,13 +24,12 @@
     margin-bottom: -8px;
 }
 .p2{
-      display: block;
+    display: block;
     -webkit-margin-before: 1em;
     -webkit-margin-after: -1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    margin-left:-4px;
-    margin-bottom: -8px;
+    margin:16px 0 -8px -4px;
 }
 .p3{
    display: block;
@@ -49,5 +48,6 @@
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+    padding-left:31px;
 }
 
