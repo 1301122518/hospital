@@ -1,7 +1,18 @@
-@(welcome:String)
+@(welcome: String)
 
-@main("欢迎来到泸州市人民医院参加体检，祝你身体健康") {
-<div class="index-main">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="index-html">
+<head>
+    <title>@welcome</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/shenqing.css")">
+    <link rel="stylesheet" media="print" href="@routes.Assets.at("stylesheets/print.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+</head>
+<body>
+<div class="index-main index-html">
     <div class="index-logo">
         <span class="index-title">医院体检打印系统</span>
     </div>
@@ -13,4 +24,5 @@
     </div>
     <!--<div class="footer">@welcome</div>-->
 </div>
-}
+</body>
+</html>
