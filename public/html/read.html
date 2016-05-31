@@ -1,7 +1,8 @@
 <HTML>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" media="print" href="../public/stylesheets/main.css")">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <link rel="stylesheet" media="print" href="../public/stylesheets/main.css">
+    <title>扫描身份证</title>
 </head>
 <style type="text/css">
 .STYLE1{
@@ -29,7 +30,7 @@
             name=rdcard
     >
     </OBJECT>
-    <body  onbeforeunload="Unload()" >
+    <body >
     <form name=tcard action="http://127.0.0.1:9000/guide" method="post">
         <table class="idCardInfo">
             <tr>
@@ -57,9 +58,6 @@
     </form>
     </body>
 
-    <script for=idcard event="Readed()">
-      getinfo_onclick();
-</script>
 
 <SCRIPT>
 	var  pp ;
@@ -85,6 +83,15 @@
 
     rdcard.strSavePath= "e:\\projects\\hospital\\public\\images\\photo";
 
+
+    <!--function getinfo_onclick(){-->
+        <!--document.getElementsByName("tName")[0].value=rdcard.NameS;-->
+        <!--document.getElementsByName("tcardID")[0].value=rdcard.CardNo;-->
+        <!--document.getElementsByName("tAddr")[0].value=rdcard.Address;-->
+
+        <!--document.getElementsByName("tResult")[0].innerHTML="身份证信息读取成功";-->
+     <!--}-->
+
     function getinfo_onclick(){
         document.getElementsByName("tName")[0].value=rdcard.NameS;
         document.getElementsByName("tcardID")[0].value=rdcard.CardNo;
@@ -92,6 +99,9 @@
 
         document.getElementsByName("tResult")[0].innerHTML="身份证信息读取成功";
      }
-
 </SCRIPT>
+
+<script for="idcard" event="Readed()">
+      getinfo_onclick();
+</script>
 </HTML>
