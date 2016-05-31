@@ -37,3 +37,4 @@
   	document.all['RETSTR'].value=str;
 
   }
+

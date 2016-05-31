@@ -1,7 +1,10 @@
 @(person: Person, exams:List[Examination], hasApply:Integer)
 
 @main("欢迎来到泸州市人民医院参加体检，祝你身体健康") {
-<table width="60%" height="295" border="0" align="center" cellpadding="0" cellspacing="0" class="print-weight">
+<object  id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0>
+    <embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0 pluginspage="install_lodop32.exe"></embed>
+</object>
+<table id="print_guide" width="60%" height="295" border="0" align="center" cellpadding="0" cellspacing="0" class="print-weight">
     <tr>
         <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="5">
             <tr>
@@ -74,24 +77,21 @@
         </td></tr>
 </table><br><br>
 <div class="print" align="center">
-    <input onclick=window.print() style="cursor:hand" type=button value=打印本页 />
-    @if(hasApply!=0){
-    <button onclick="{location.href='/apply/@person.id'}" style="cursor:hand">打印申请单</button>
-    }
+    <input onclick="javascript:print_guide()" style="cursor:hand" type=button value=打印本页 />
 </div>
 <script type="text/javascript">
+var LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));
+function print_guide(){
+		LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+		LODOP.ADD_PRINT_HTM(0,80,550,800,document.getElementById("print_guide").innerHTML);
+		<!--LODOP.PREVIEW();-->
+		var is_print = LODOP.PRINT();
+        if(is_print&&@hasApply!=0){
+            if (confirm("指引单打印完毕，请点击确定转向申请单页面")){
+                window.location.href="/apply/@person.id";
+            }
+        }
+	};
 
-    var hasApply = @hasApply;
-    if(hasApply!=0){
-    <!--var t = 10;//设定跳转的时间-->
-    <!--setInterval("refer()",1000); //启动1秒定时-->
-    <!--function refer(){-->
-            <!--if (t == 0) {-->
-                <!--location = "http://127.0.0.1:9000/apply"; //#设定跳转的链接地址-->
-            <!--}-->
-            <!--t&#45;&#45;; // 计数器递减-->
-    <!--}-->
-    setTimeout("alert('您有需要签字的项目，请您在打印完指引单后，打印申请表。')", 1000)
-    }
 </script>
 }
