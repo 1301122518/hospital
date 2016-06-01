@@ -79,18 +79,21 @@
 <script type="text/javascript">
 var LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));
 function print_guide(){
-		LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
-		LODOP.ADD_PRINT_HTM(0,80,550,800,document.getElementById("print_guide").innerHTML);
+        var strStyleCSS="<link href='/assets/stylesheets/print.css' type='text/css' rel='stylesheet'>";
+		var strHtml=strStyleCSS+"<body>"+document.getElementById("print_guide").innerHTML+"</body>";
+
+		LODOP.PRINT_INIT("打印指引单");
+		LODOP.ADD_PRINT_HTM(10,0,"100%","90%",strHtml);
 		LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
-            if (@hasApply&&confirm("指引单打印完毕，请点击确定转向申请单页面")){
-                window.location.href="/apply/@person.id";
-            }else{
-                if(confirm("指引单打印完毕，现在将转向首页")){
-                  window.history.go(-2);
-                }
-            }
+            <!--if (@hasApply&&confirm("指引单打印完毕，请点击确定转向申请单页面")){-->
+                <!--window.location.href="/apply/@person.id";-->
+            <!--}else{-->
+                <!--if(confirm("指引单打印完毕，现在将转向首页")){-->
+                  <!--window.history.go(-2);-->
+                <!--}-->
+            <!--}-->
         }
 	};
 </script>
