@@ -53,8 +53,20 @@
 <div class="print" align="center">
     <input onclick="print_apply()" style="cursor:hand" type=button value=打印本页 />
 </div>
+<div id="show">
+    <p id="redirect_info"></p>
+</div>
 
 <script type="text/javascript">
+var t=10;//设定跳转的时间
+function refer(){
+    if(t<=0){
+        history.go(-3);
+    }
+    document.getElementById('redirect_info').innerHTML="申请单开始打印，"+t+"秒后跳转到首页"; // 显示倒计时
+    t--;//本文转自：
+}
+
 var LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));
 function print_apply(){
         var strStyleCSS="<link href='/assets/stylesheets/print.css' type='text/css' rel='stylesheet'>";
@@ -65,11 +77,8 @@ function print_apply(){
 		LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
-            if (confirm("申请单打印完毕，将转向首页.")){
-                <!--window.location.href="@routes.Assets.at("html/index.html")";-->
-                <!--window.location="file:///E:/projects/hospital/public/html/index.html";-->
-                window.history.go(-3);
-            }
+            document.getElementById('show').style.display="block";
+            setInterval("refer()",1000); 启动1秒定时
         }
 	};
 </script>
