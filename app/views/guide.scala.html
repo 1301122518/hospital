@@ -76,7 +76,25 @@
 <div class="print" align="center">
     <input onclick="javascript:print_guide()" style="cursor:hand" type=button value=打印本页 />
 </div>
+<div id="show" align="center">
+    <p id="redirect_info" align="center"></p>
+</div>
 <script type="text/javascript">
+var t=5;//设定跳转的时间
+var go_home = 1 ;
+var info = "";
+function refer(){
+    if(t<=0){
+        if(go_home)
+        {
+             window.history.go(-2);
+        }else{
+            window.location.href="/apply/@person.id";
+        }
+    }
+    document.getElementById('redirect_info').innerHTML="指引单开始打印，"+t+info // 显示倒计时
+    t--;//本文转自：
+}
 var LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));
 function print_guide(){
         var strStyleCSS="<link href='/assets/stylesheets/print.css' type='text/css' rel='stylesheet'>";
@@ -87,13 +105,14 @@ function print_guide(){
 		LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
-            if (@hasApply&&confirm("指引单打印完毕，请点击确定转向申请单页面")){
-                window.location.href="/apply/@person.id";
+            document.getElementById('show').style.display="block";
+            if (@hasApply){
+                info = "秒后跳转到申请页。";
+                go_home = 0;
             }else{
-                if(confirm("指引单打印完毕，现在将转向首页")){
-                  window.history.go(-2);
-                }
+                info = "秒后跳转到首页。";
             }
+            setInterval("refer()",1000);
         }
 	};
 </script>
