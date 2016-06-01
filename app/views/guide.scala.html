@@ -87,13 +87,13 @@ function print_guide(){
 		LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
-            <!--if (@hasApply&&confirm("指引单打印完毕，请点击确定转向申请单页面")){-->
-                <!--window.location.href="/apply/@person.id";-->
-            <!--}else{-->
-                <!--if(confirm("指引单打印完毕，现在将转向首页")){-->
-                  <!--window.history.go(-2);-->
-                <!--}-->
-            <!--}-->
+            if (@hasApply&&confirm("指引单打印完毕，请点击确定转向申请单页面")){
+                window.location.href="/apply/@person.id";
+            }else{
+                if(confirm("指引单打印完毕，现在将转向首页")){
+                  window.history.go(-2);
+                }
+            }
         }
 	};
 </script>

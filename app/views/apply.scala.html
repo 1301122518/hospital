@@ -65,11 +65,11 @@ function print_apply(){
 		LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
-            <!--if (confirm("申请单打印完毕，将转向首页.")){-->
-                <!--&lt;!&ndash;window.location.href="@routes.Assets.at("html/index.html")";&ndash;&gt;-->
-                <!--&lt;!&ndash;window.location="file:///E:/projects/hospital/public/html/index.html";&ndash;&gt;-->
-                <!--window.history.go(-3);-->
-            <!--}-->
+            if (confirm("申请单打印完毕，将转向首页.")){
+                <!--window.location.href="@routes.Assets.at("html/index.html")";-->
+                <!--window.location="file:///E:/projects/hospital/public/html/index.html";-->
+                window.history.go(-3);
+            }
         }
 	};
 </script>
