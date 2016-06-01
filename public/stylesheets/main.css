@@ -117,7 +117,7 @@
    left:69%;
 }
 
-#show{
+#show,#show-apply{
     display:none;
     position:absolute;
     z-index:999;
@@ -125,10 +125,16 @@
     height:100px;
     top:30%;
     left:32%;
-    padding:50px 0 0 35px;
+    padding:50px 0 0 12px;
     color:white;
     border:2px solid #3b3b3b;
     border-radius:15px;
     background-color: #5CACEE;
     font-size:18px;
+}
+
+#show-apply{
+   width:380px;
+   height:100px;
+   padding:50px 23px 0 35px;
 }
