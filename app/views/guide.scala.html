@@ -81,7 +81,7 @@ var LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('
 function print_guide(){
 		LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
 		LODOP.ADD_PRINT_HTM(0,80,550,800,document.getElementById("print_guide").innerHTML);
-		<!--LODOP.PREVIEW();-->
+		LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
             if (@hasApply&&confirm("指引单打印完毕，请点击确定转向申请单页面")){

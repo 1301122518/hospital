@@ -1,10 +1,13 @@
 @(person: Person, applies:List[models.Application])
 
 @main("欢迎来到泸州市人民医院参加体检，祝你身体健康") {
-<div id="print_apply" style="width:100%">
+<div id="print_apply">
 <div class="title" align="center"><table width="50%" border="0" cellspacing="0" cellpadding="0" class="print-weight2">
     <tr>
         <!--<td width="15%">头像图片</td>-->
+        <!--<td width="15%">-->
+            <!--<img src=@routes.Assets.at("images/photo/zp.jpg") />-->
+        <!--</td>-->
         <td width="90%" align="center"><h1>泸州市人民医院体检申请单</h1></td>
     </tr>
 </table>
@@ -23,7 +26,7 @@
     <td width="45%" align="left" valign="top">联系人电话：@person.tel</td></tr></table>
 </div>
 <div class="apply-photo"><img src=@routes.Assets.at("images/photo/zp.jpg") /></div>
-<div class="p3 print-p3" >
+<div class="p3 print-p3 print-weight2" >
     <p>联系人地址：@person.address</p>
 </div>
 <div class="table2" align="center">
@@ -45,8 +48,8 @@
         </tr>
         }
     </table>
-</div><br>
 </div>
+</div><br>
 <div class="print" align="center">
     <input onclick="print_apply()" style="cursor:hand" type=button value=打印本页 />
 </div>
@@ -54,16 +57,19 @@
 <script type="text/javascript">
 var LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));
 function print_apply(){
-		LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
-		LODOP.ADD_PRINT_HTM(0,20,550,800,document.getElementById("print_apply").innerHTML);
-		<!--LODOP.PREVIEW();-->
+        var strStyleCSS="<link href='/assets/stylesheets/print.css' type='text/css' rel='stylesheet'>";
+		var strHtml=strStyleCSS+"<body>"+document.getElementById("print_apply").innerHTML+"</body>";
+
+		LODOP.PRINT_INIT("医院申请单");
+		LODOP.ADD_PRINT_HTM(10,10,"100%","100%",strHtml);
+		LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
-            if (confirm("申请单打印完毕，将转向首页.")){
-                <!--window.location.href="@routes.Assets.at("html/index.html")";-->
-                <!--window.location="file:///E:/projects/hospital/public/html/index.html";-->
-                window.history.go(-3);
-            }
+            <!--if (confirm("申请单打印完毕，将转向首页.")){-->
+                <!--&lt;!&ndash;window.location.href="@routes.Assets.at("html/index.html")";&ndash;&gt;-->
+                <!--&lt;!&ndash;window.location="file:///E:/projects/hospital/public/html/index.html";&ndash;&gt;-->
+                <!--window.history.go(-3);-->
+            <!--}-->
         }
 	};
 </script>

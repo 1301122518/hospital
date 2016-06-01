@@ -5,7 +5,10 @@
   display: none;
  color: #000;
  background: none;
+}
 
+.title{
+    margin-bottom:20px;
 }
 
 #head {
@@ -22,7 +25,7 @@
  margin: 0cm;
 }
 .print-weight2{
- width: 100%;
+ width: 80%;
  padding: 0;
  margin: 0cm;
 }
@@ -53,7 +56,7 @@
     -webkit-margin-after: -1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    margin-bottom: -8px;
+    margin:0 0 10px 4px;
 }
 .p2{
       display: block;
@@ -61,8 +64,6 @@
     -webkit-margin-after: -1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    margin-left:-4px;
-    margin-bottom: -8px;
 }
 .p3{
    display: block;
@@ -71,9 +72,16 @@
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    margin-left:-1px;
+    margin:-2px 10% 20px 3px;
+    padding-left:10%;
 }
 
 .exam-item td, .apply-item td{
     padding : 4px;
+}
+
+.apply-photo{
+   position: absolute;
+   top:1.8%;
+   left:77.5%;
 }
