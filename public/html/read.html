@@ -17,12 +17,12 @@
 <br/>
 <br/>
    <center>
-       <p ><font size="7" name="tResult">请将身份证放至感应区</font></p>
+       <p ><font size="7" id="tResult">请将身份证放至感应区</font></p>
     <OBJECT
             classid="clsid:F1317711-6BDE-4658-ABAA-39E31D3704D3"
             codebase="SDRdCard.cab#version=1,3,6,1"
-            width=299
-            height=190
+            width=330
+            height=210
             align=center
             hspace=0
             vspace=0
@@ -62,16 +62,18 @@
 <SCRIPT>
 	var  pp ;
 	pp=rdcard.openport();
+	/*
 	if(pp==0)
     {
-        document.getElementsByName("tResult")[0].innerHTML="连接身份证扫描仪成功";
+        document.getElementsById("tResult").innerHTML="连接身份证扫描仪成功";
     }
     else
     {
         document.getElementsByName("tResult")[0].innerHTML="连接身份证扫描仪失败: "+pp;
     }
-
+*/
 	pp=rdcard.ReadCard2();
+	/*
 	if(pp==0)
     {
         document.getElementsByName("tResult")[0].innerHTML="请将身份证放到感应区...";
@@ -80,8 +82,9 @@
     {
         document.getElementsByName("tResult")[0].innerHTML="读取信息失败: "+pp;
     }
+	*/
 
-    rdcard.strSavePath= "e:\\projects\\hospital\\public\\images\\photo";
+    rdcard.strSavePath= "d:\\hospital\\public\\images\\photo";
 
 
     <!--function getinfo_onclick(){-->
