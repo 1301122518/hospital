@@ -8,22 +8,30 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import javax.persistence.GeneratedValue;
+import org.hibernate.annotations.GenericGenerator;
+
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="view_examination")
 public class Examination implements Serializable {
-    @Id
+    /* @Id
     @GeneratedValue
     public Long id;
-
-    public String idCardNo;
+ */
+	@Id
+	@GeneratedValue(generator="uuid")
+    @GenericGenerator(name="uuid", strategy="uuid")
+	@Column(name="idCardNo")
+    public String id;
 
     public String examDepartment;
 
@@ -39,10 +47,19 @@ public class Examination implements Serializable {
 
     public Examination(){};
 
-    public Examination(Long id, String idCardNo, String examDepartment,
+/*     public Examination(Long id, String idCardNo, String examDepartment,
                        String examAddress, String examItem, String admin){
         this.id = id;
         this.idCardNo = idCardNo;
+        this.examDepartment = examDepartment;
+        this.examAddress = examAddress;
+        this.examItem = examItem;
+        this.admin = admin;
+    } */
+	
+	    public Examination(String idCardNo, String examDepartment,
+                       String examAddress, String examItem, String admin){
+        this.id = id;
         this.examDepartment = examDepartment;
         this.examAddress = examAddress;
         this.examItem = examItem;
