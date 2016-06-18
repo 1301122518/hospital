@@ -38,13 +38,13 @@ public class Person implements Serializable{
     @Column(name="idCardNo")
     public String id;
 
-    public String organisation;
+    public String organization;
 
     public String name;
 
     public String gender;
 
-    public Integer age;
+    public String age;
 
     public String tel;
 
@@ -52,7 +52,8 @@ public class Person implements Serializable{
 
     //public String examID;
 
-    public String examImage;
+   // public String examImage;
+	public Integer examImage;
 
     //public String applyID;
 
@@ -93,9 +94,9 @@ public class Person implements Serializable{
  */
  
   public Person(String id,  String organisation, String name,
-                  String gender, Integer age, String tel, String marryStatus, String examImage,String address){
+                  String gender, String age, String tel, String marryStatus, Integer examImage,String address){
         this.id = id;
-        this.organisation = organisation;
+        this.organization = organisation;
         this.name = name;
         this.gender = gender;
         this.age = age;
