@@ -31,6 +31,7 @@
 }
 
 .person-info{
+	margin-right:-10px;
 }
 
 .inline{
@@ -47,7 +48,7 @@
 }
 
 .print-info{
-    width:78%;
+    width:58%;
 }
 
 .p1{
@@ -87,5 +88,5 @@
 }
 
 .person-info{
-    margin-right : 5.6%;
+    margin-right : 1.5%;
 }

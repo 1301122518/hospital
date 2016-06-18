@@ -62,9 +62,9 @@
                 <td colspan="3"><br><strong>血压：__/__mmHg</strong></td>
             </tr>
             <tr>
-                <td width="30%"><strong>登记人:__________</strong></td>
-				<td width="48%"><strong>体检已计价费用:<u>__________</u>元</strong></td>
-                <td width="22%"><strong>总费用:<u>__________</u>元</strong></td>
+                <td width="18%"><strong>登记人:__________</strong></td>
+				<td width="30%"><strong>体检已计价费用:<u>__________</u>元</strong></td>
+                <td width="18%"><strong>总费用:<u>__________</u>元</strong></td>
             </tr>
             <tr>
                 <td colspan="3" valign="top" >备注：1、个人客户请于完成的三个公作日后下午，凭借缴费发票领取报告。<br>
@@ -105,8 +105,8 @@ function print_guide(){
 		var strHtml=strStyleCSS+"<body>"+document.getElementById("print_guide").innerHTML+"</body>";
 
 		LODOP.PRINT_INIT("打印指引单");
-		LODOP.ADD_PRINT_HTM(10,0,"100%","90%",strHtml);
-		LODOP.PREVIEW();
+		LODOP.ADD_PRINT_HTM(20,30,"93%","90%",strHtml);
+		//LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
             if (@hasApply){
@@ -120,7 +120,7 @@ function print_guide(){
                 show_id = 'redirect_info'
             }
             setInterval("refer()",1000);
-        }
+        } 
 	};
 </script>
 }
