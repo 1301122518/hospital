@@ -52,15 +52,15 @@ public class Person implements Serializable{
 
     public String examID;
 
-    public String examImage;
+    //public String examImage;
 
-    public String applyID;
+    //public String applyID;
 
-    public String applyImage;
+    //public String applyImage;
 
-    public Integer cost;
+    //public Integer cost;
 
-    public Integer allCost;
+    //public Integer allCost;
 
     public String address;
 
@@ -72,7 +72,7 @@ public class Person implements Serializable{
 
     public Person(){};
 
-    public Person(String id,  String organisation, String name,
+/*     public Person(String id,  String organisation, String name,
                   String gender, Integer age, String tel, String marryStatus, String examID,
                   String examImage, String applyID, String applyImage, Integer cost, Integer allCost,String address){
         this.id = id;
@@ -90,7 +90,20 @@ public class Person implements Serializable{
         this.allCost = allCost;
         this.address=address;
     }
-
+ */
+ 
+  public Person(String id,  String organisation, String name,
+                  String gender, Integer age, String tel, String marryStatus, String examID,String address){
+        this.id = id;
+        this.organisation = organisation;
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.tel = tel;
+        this.marryStatus = marryStatus;
+        this.examID = examID;
+        this.address=address;
+    }
     public String toString(){
         return this.id + "  " + this.name;
     }
