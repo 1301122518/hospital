@@ -50,9 +50,9 @@ public class Person implements Serializable{
 
     public String marryStatus;
 
-    public String examID;
+    //public String examID;
 
-    //public String examImage;
+    public String examImage;
 
     //public String applyID;
 
@@ -93,7 +93,7 @@ public class Person implements Serializable{
  */
  
   public Person(String id,  String organisation, String name,
-                  String gender, Integer age, String tel, String marryStatus, String examID,String address){
+                  String gender, Integer age, String tel, String marryStatus, String examImage,String address){
         this.id = id;
         this.organisation = organisation;
         this.name = name;
@@ -101,7 +101,7 @@ public class Person implements Serializable{
         this.age = age;
         this.tel = tel;
         this.marryStatus = marryStatus;
-        this.examID = examID;
+        this.examImage = examImage;
         this.address=address;
     }
     public String toString(){
