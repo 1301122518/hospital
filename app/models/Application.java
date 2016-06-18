@@ -32,6 +32,7 @@ public class Application implements Serializable {
 
     public String signDoctor;
 
+
     public String applyDepartment;
 
     public Date applyTime;
