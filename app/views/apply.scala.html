@@ -14,7 +14,7 @@
 </div>
 <div class="p1" align="center"><table width="50%" border="0" cellspacing="0" cellpadding="0"  class="print-weight2">
     <tr>
-        <td width="80%" >单位：@person.organization</td>
+        <td width="80%" align="left">单位：@person.organization</td>
         <!--<td width="20%" align="right ">申请表条形码</td>-->
     </tr>
 </table>
@@ -59,8 +59,10 @@
 
 <script type="text/javascript">
 var t=10;//设定跳转的时间
+var clear;
 function refer(){
     if(t<=0){
+		window.clearInterval(clear);
         history.go(-3);
     }
     document.getElementById('redirect_info').innerHTML="申请单开始打印，"+t+"秒后跳转到首页。"; // 显示倒计时
@@ -73,13 +75,13 @@ function print_apply(){
 		var strHtml=strStyleCSS+"<body>"+document.getElementById("print_apply").innerHTML+"</body>";
 
 		LODOP.PRINT_INIT("医院申请单");
-		LODOP.ADD_PRINT_HTM(10,10,"100%","100%",strHtml);
+		LODOP.ADD_PRINT_HTM(20,30,"93%","90%",strHtml);
 		LODOP.PREVIEW();
-		var is_print = LODOP.PRINT();
-        if(is_print){
-            document.getElementById('show').style.display="block";
-            setInterval("refer()",1000); 启动1秒定时
-        }
+		//var is_print = LODOP.PRINT();
+        //if(is_print){
+       //     document.getElementById('show').style.display="block";
+       //     clear = setInterval("refer()",1000); //启动1秒定时
+       // }
 	};
 </script>
 }
