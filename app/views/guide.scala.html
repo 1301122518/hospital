@@ -87,6 +87,7 @@ var t=5;//设定跳转的时间
 var go_home = true ;
 var info = "";
 var show_id = ""
+var clear;
 function refer(){
     if(t<=0){
         if(go_home)
@@ -95,7 +96,9 @@ function refer(){
         }else{
 			 info = "即将为您跳转至申请单打印页，请稍候。"
 			 document.getElementById(show_id).innerHTML=info;
+			 window.clearInterval(clear);
              window.location.href="http://127.0.0.1:9000/apply/@person.id";
+			 
         }
     }else{
 		document.getElementById(show_id).innerHTML="指引单开始打印，"+t+info; // 显示倒计时
@@ -123,7 +126,7 @@ function print_guide(){
                 info = "秒后跳转到首页。";
                 show_id = 'redirect_info'
             }
-            setInterval("refer()",1000);
+            clear = setInterval("refer()",1000);
         } 
 	};
 </script>
