@@ -11,22 +11,30 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import javax.persistence.GeneratedValue;
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="view_application")
 public class Application implements Serializable {
 
-    @Id
+    /* @Id
     @GeneratedValue
     public Long id;
-
-    public String idCardNo;
+ */
+	@Id
+	@GeneratedValue(generator="uuid")
+    @GenericGenerator(name="uuid", strategy="uuid")
+	@Column(name="idCardNo")
+    public String id;
 
     public String applyItem;
 
@@ -34,8 +42,10 @@ public class Application implements Serializable {
 
     public String applyDepartment;
 
-    public Date applyTime;
+    //public Date applyTime;
 
+	public String applyTime;
+	
     public String examAddress;
 
     @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST})
@@ -44,10 +54,21 @@ public class Application implements Serializable {
 
     public Application(){};
 
-    public Application(Long id, String idCardNo, String applyItem, String signDoctor,
+    /* public Application(Long id, String idCardNo, String applyItem, String signDoctor,
                        String applyDepartment, Date applyTime, String examAddress){
         this.id = id;
         this.idCardNo = idCardNo;
+        this.applyItem = applyItem;
+        this.signDoctor = signDoctor;
+        this.applyDepartment = applyDepartment;
+        this.applyTime = applyTime;
+        this.examAddress = examAddress;
+    }
+	 */
+	 
+    public Application(String id, String applyItem, String signDoctor,
+                       String applyDepartment, String applyTime, String examAddress){
+        this.id = id;
         this.applyItem = applyItem;
         this.signDoctor = signDoctor;
         this.applyDepartment = applyDepartment;

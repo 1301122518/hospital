@@ -37,8 +37,11 @@ public class Application extends Controller {
 
     public Result guideDemo() {
 
-        String testID = "5101841988082106X";
-//        String testID = "110108199611240188";
+        String testID ;
+        testID = "5101841988082106X";
+       // testID = "51018419880821006X";
+		// testID = "510503198901295276";
+//        testID = "110108199611240188";
 
         final Person retrievedPerson = personRepository.findOne(testID);
         final Iterator examSet = retrievedPerson.exams.iterator();

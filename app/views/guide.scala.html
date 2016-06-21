@@ -8,8 +8,8 @@
                 <td colspan="2" align="center" valign="top"><h1>泸州市人民医院体检指引单</h1></td>
             </tr>
             <tr>
-                <td width="69%" valign="top">单位：@person.organisation</td>
-                <td width="31%" align="right" valign="middle">门诊号：@person.examID</td>
+                <td width="69%" valign="top">单位：@person.organization</td>
+                <td width="31%" align="right" valign="middle">门诊号：@person.examImage</td>
             </tr>
             <tr>
                 <td colspan="2" >
@@ -18,7 +18,7 @@
                     <span class="person-info">性别:@person.gender</span>
                     <span class="person-info">婚姻状况:@person.marryStatus</span>
                     <span class="person-info">年龄:@person.age</span>
-                    <span class="person-info">体检编号:@person.examID</span>
+                    <span class="person-info">体检编号:@person.examImage</span>
                     <span>联系电话:@person.tel</span>
                     <hr>
                 </td>
@@ -62,9 +62,9 @@
                 <td colspan="3"><br><strong>血压：__/__mmHg</strong></td>
             </tr>
             <tr>
-                <td width="30%"><strong>登记人:__________</strong></td>
-                <td width="48%"><strong>体检已计价费用:<u>@person.cost</u>元</strong></td>
-                <td width="22%"><strong>总费用:<u>@person.allCost</u>元</strong></td>
+                <td width="18%"><strong>登记人:__________</strong></td>
+				<td width="30%"><strong>体检已计价费用:<u>__________</u>元</strong></td>
+                <td width="18%"><strong>总费用:<u>__________</u>元</strong></td>
             </tr>
             <tr>
                 <td colspan="3" valign="top" >备注：1、个人客户请于完成的三个公作日后下午，凭借缴费发票领取报告。<br>
@@ -84,20 +84,27 @@
 </div>
 <script type="text/javascript">
 var t=5;//设定跳转的时间
-var go_home = 1 ;
+var go_home = true ;
 var info = "";
 var show_id = ""
+var clear;
 function refer(){
     if(t<=0){
         if(go_home)
         {
              window.history.go(-2);
         }else{
-            window.location.href="/apply/@person.id";
+			 info = "即将为您跳转至申请单打印页，请稍候。"
+			 document.getElementById(show_id).innerHTML=info;
+			 window.clearInterval(clear);
+             window.location.href="http://127.0.0.1:9000/apply/@person.id";
+			 
         }
-    }
-    document.getElementById(show_id).innerHTML="指引单开始打印，"+t+info // 显示倒计时
-    t--;//本文转自：
+    }else{
+		document.getElementById(show_id).innerHTML="指引单开始打印，"+t+info; // 显示倒计时
+		t--;//本文转自：
+	}
+    
 }
 var LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));
 function print_guide(){
@@ -105,22 +112,22 @@ function print_guide(){
 		var strHtml=strStyleCSS+"<body>"+document.getElementById("print_guide").innerHTML+"</body>";
 
 		LODOP.PRINT_INIT("打印指引单");
-		LODOP.ADD_PRINT_HTM(10,0,"100%","90%",strHtml);
-		LODOP.PREVIEW();
+		LODOP.ADD_PRINT_HTM(20,30,"93%","90%",strHtml);
+		//LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
             if (@hasApply){
             document.getElementById('show-apply').style.display="block";
                 info = "秒后跳转到申请单页面。";
-                go_home = 0;
+                go_home = false;
                 show_id = 'redirect_info_apply'
             }else{
             document.getElementById('show').style.display="block";
                 info = "秒后跳转到首页。";
                 show_id = 'redirect_info'
             }
-            setInterval("refer()",1000);
-        }
+            clear = setInterval("refer()",1000);
+        } 
 	};
 </script>
 }
