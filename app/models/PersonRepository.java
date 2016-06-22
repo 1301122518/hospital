@@ -4,12 +4,13 @@
 package models;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.query.Procedure;
+import org.springframework.data.repository.query.Param;
 
+//import javax.persistence.Procedure;
+//import javax.persistence.Param;
 import javax.inject.Named;
 import javax.inject.Singleton;
-import javax.inject.Procedure;
-
-
 @Named
 @Singleton
 public interface PersonRepository extends CrudRepository<Person, String>  {

@@ -20,12 +20,19 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 import javax.persistence.Table;
-
 import javax.persistence.FetchType;
+import javax.persistence.NamedStoredProcedureQueries;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="view_person")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(name = "person_report", procedureName = "hospital.person_report", parameters = {
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "idCardNo", type = String.class) })
+})
 public class Person implements Serializable{
 
 //    @Id
