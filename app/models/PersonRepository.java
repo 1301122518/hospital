@@ -12,6 +12,7 @@ import javax.inject.Singleton;
 @Named
 @Singleton
 public interface PersonRepository extends CrudRepository<Person, String>  {
+
     @Procedure
     void report(String idCardNo);
 
