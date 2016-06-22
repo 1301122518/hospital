@@ -30,8 +30,8 @@ import javax.persistence.StoredProcedureParameter;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="view_person")
 @NamedStoredProcedureQueries({
-        @NamedStoredProcedureQuery(name = "person_report", procedureName = "hospital.person_report", parameters = {
-        @StoredProcedureParameter(mode = ParameterMode.IN, name = "idCardNo", type = String.class) })
+    @NamedStoredProcedureQuery(name = "report", procedureName = "person_report", parameters = {
+    @StoredProcedureParameter(mode = ParameterMode.IN, name = "idCardNo", type = String.class) })
 })
 public class Person implements Serializable{
 
