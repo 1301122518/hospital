@@ -35,26 +35,35 @@ public class Application extends Controller {
         return ok(views.html.index.render(welcome));
     }
 
-    public Result guideDemo() {
+    public Person getPerson(String idCardNo){
+        personRepository.report(idCardNo);
+        return personRepository.findOne(idCardNo);
+    }
 
-        String testID ;
-        testID = "5101841988082106X";
-       // testID = "51018419880821006X";
-		// testID = "510503198901295276";
-//        testID = "110108199611240188";
+    public List getExams(Person retrievedPerson){
 
-        final Person retrievedPerson = personRepository.findOne(testID);
         final Iterator examSet = retrievedPerson.exams.iterator();
         final List<Examination> exams = new ArrayList<Examination>();
-
-        final Integer hasApply = retrievedPerson.applies.size();
 
         while(examSet.hasNext()){
             Examination exam = (Examination) examSet.next();
             exams.add(exam);
         }
 
-        return ok(views.html.guide.render(retrievedPerson, exams, hasApply));
+        return exams;
+    }
+
+    public Integer hasApply(Person retrievedPerson){
+        return retrievedPerson.applies.size();
+    }
+
+    public Result guideDemo() {
+
+        String testID ;
+        testID = "51018419880821006X";
+        final Person retrievedPerson = getPerson(testID);
+
+        return ok(views.html.guide.render(getPerson(testID), getExams(retrievedPerson), hasApply(retrievedPerson)));
     }
     public Result guide() {
 
