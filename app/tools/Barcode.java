@@ -48,8 +48,8 @@ public class Barcode{
     {
         try
         {
-            FileOutputStream localFileOutputStream = new FileOutputStream("e:\\images\\" + paramString1);
-            ImageUtil.encodeAndWrite(paramBufferedImage, paramString2, localFileOutputStream, 96, 96);
+            FileOutputStream localFileOutputStream = new FileOutputStream("E:\\projects\\hospital\\public\\images\\photo\\" + paramString1);
+            ImageUtil.encodeAndWrite(paramBufferedImage, paramString2, localFileOutputStream, 50, 50);
             localFileOutputStream.close();
         }
         catch (Exception localException)

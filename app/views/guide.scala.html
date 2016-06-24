@@ -8,8 +8,8 @@
                 <td colspan="2" align="center" valign="top"><h1>泸州市人民医院体检指引单</h1></td>
             </tr>
             <tr>
-                <td width="69%" valign="top">单位：@person.organization</td>
-                <td width="31%" align="right" valign="middle">门诊号：@person.examImage</td>
+                <td width="49%" valign="middle" class="organization"><span>单位：@person.organization</span></td>
+                <td width="31%" align="right" valign="top" class="barcode"><img src="@routes.Assets.at("images/photo/barcode.jpg")" /></td>
             </tr>
             <tr>
                 <td colspan="2" >
@@ -113,7 +113,7 @@ function print_guide(){
 
 		LODOP.PRINT_INIT("打印指引单");
 		LODOP.ADD_PRINT_HTM(20,30,"93%","90%",strHtml);
-		//LODOP.PREVIEW();
+		LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
             if (@hasApply){
