@@ -69,6 +69,7 @@ public class Application extends Controller {
 
         return ok(views.html.guide.render(getPerson(testID), getExams(retrievedPerson), hasApply(retrievedPerson)));
     }
+
     public Result guide() {
 
         DynamicForm values = Form.form().bindFromRequest();
@@ -78,18 +79,9 @@ public class Application extends Controller {
             //TODO:if cannot read the id card no ,it's shoule be redirect to other page.
         }
 
-        final Person retrievedPerson = personRepository.findOne(idCardNo);
-        final Iterator examSet = retrievedPerson.exams.iterator();
-        final List<Examination> exams = new ArrayList<Examination>();
+        final Person retrievedPerson = getPerson(testID);
 
-        final Integer hasApply = retrievedPerson.applies.size();
-
-        while(examSet.hasNext()){
-            Examination exam = (Examination) examSet.next();
-            exams.add(exam);
-        }
-
-        return ok(views.html.guide.render(retrievedPerson, exams, hasApply));
+        return ok(views.html.guide.render(getPerson(testID), getExams(retrievedPerson), hasApply(retrievedPerson)));
     }
 
     public Result apply(String idCardNo) {
