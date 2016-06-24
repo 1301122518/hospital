@@ -44,31 +44,14 @@ public class Application extends Controller {
         return person;
     }
 
-    public List getExams(Person retrievedPerson){
-
-        final Iterator examSet = retrievedPerson.exams.iterator();
-        final List<Examination> exams = new ArrayList<Examination>();
-
-        while(examSet.hasNext()){
-            Examination exam = (Examination) examSet.next();
-            exams.add(exam);
-        }
-
-        return exams;
-    }
-
-    public Integer hasApply(Person retrievedPerson){
-        return retrievedPerson.applies.size();
-    }
-
     public Result guideDemo() {
 
         String testID ;
         testID = "51018419880821006X";
 //        testID = "51018419880821006X";
-        final Person retrievedPerson = getPerson(testID);
+        final Person person = getPerson(testID);
 
-        return ok(views.html.guide.render(getPerson(testID), getExams(retrievedPerson), hasApply(retrievedPerson)));
+        return ok(views.html.guide.render(person, person.getExams(), person.hasApply()));
     }
 
     public Result guide() {
@@ -80,9 +63,9 @@ public class Application extends Controller {
             //TODO:if cannot read the id card no ,it's shoule be redirect to other page.
         }
 
-        final Person retrievedPerson = getPerson(idCardNo);
+        final Person person = getPerson(idCardNo);
 
-        return ok(views.html.guide.render(retrievedPerson, getExams(retrievedPerson), hasApply(retrievedPerson)));
+        return ok(views.html.guide.render(person, person.getExams(), person.hasApply()));
     }
 
     public Result apply(String idCardNo) {

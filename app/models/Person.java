@@ -5,6 +5,11 @@ package models;
 import java.util.HashSet;
 import java.util.Set;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.annotation.Generated;
 import javax.persistence.Entity;
@@ -112,6 +117,35 @@ public class Person implements Serializable{
         this.examImage = examImage;
         this.address=address;
     }
+
+    public List getExams(){
+
+        final Iterator examSet = this.exams.iterator();
+        final List<Examination> exams = new ArrayList<Examination>();
+
+        while(examSet.hasNext()){
+            Examination exam = (Examination) examSet.next();
+            exams.add(exam);
+        }
+
+        return exams;
+    }
+
+//    public Integer hasApply(){
+//        boolean result;
+//
+//        if(this.applies.size() != 0){
+//            result = true;
+//        }else{
+//            result = false;
+//        }
+//        return result;
+//    }
+
+    public Integer hasApply(){
+        return this.applies.size();
+    }
+
     public String toString(){
         return this.id + "  " + this.name;
     }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
+
 @Named
 @Singleton
 @Repository
