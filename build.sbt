@@ -34,11 +34,24 @@ lazy val ojdbc = project
     //packageDoc in Compile     := baseDirectory.value / s"${name.value}-javadoc.jar"
   )
 
+lazy val jbarcode = project
+  .in(file("modules/jbarcode"))
+  .settings(
+    organization              := "com.hynnet",
+    name                      := "jbarcode",
+    version                   := "0.2.8", crossPaths                := false,  //don't add scala version to this artifacts in repo publishMavenStyle         := true,
+    autoScalaLibrary          := false,  //don't attach scala libs as dependencies
+    description               := "ORALCE JDBC project for publishing dependency to maven repo, use 'sbt publishLocal' to install it",
+    packageBin in Compile     := baseDirectory.value / s"${name.value}.jar"
+    //packageDoc in Compile     := baseDirectory.value / s"${name.value}-javadoc.jar"
+  )
+
 libraryDependencies ++= Seq(
     javaCore,
     javaJpa,
    "com.hynnet" % "sqljdbc-chs" % "4.2-IDonKnow",
 	"com.hynnet" % "ojdbc6" % "6.0.0",
+	"com.hynnet" % "jbarcode" % "0.2.8",
     //"mysql" % "mysql-connector-java" % "5.1.18",
     "org.springframework" % "spring-context" % "4.2.5.RELEASE",
     "javax.inject" % "javax.inject" % "1",

@@ -36,7 +36,7 @@ public class Application extends Controller {
     }
 
     public Person getPerson(String idCardNo){
-        personRepository.report(idCardNo);
+//        personRepository.report(idCardNo);
         return personRepository.findOne(idCardNo);
     }
 
