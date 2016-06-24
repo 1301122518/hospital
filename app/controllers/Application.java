@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import models.*;
+import tools.*;
 import play.mvc.*;
 import play.data.DynamicForm;
 import play.data.Form;
@@ -23,6 +24,7 @@ import javax.inject.Singleton;
 public class Application extends Controller {
 
     private final PersonRepository personRepository;
+    private Barcode barcode;
 
     @Inject
     public Application(final PersonRepository personRepository) {
@@ -36,8 +38,10 @@ public class Application extends Controller {
     }
 
     public Person getPerson(String idCardNo){
-//        personRepository.report(idCardNo);
-        return personRepository.findOne(idCardNo);
+        Person person = personRepository.findOne(idCardNo);
+        barcode = new Barcode(person.examImage.toString());
+        barcode.getBarCode();
+        return person;
     }
 
     public List getExams(Person retrievedPerson){
