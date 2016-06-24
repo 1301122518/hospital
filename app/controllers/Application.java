@@ -65,6 +65,7 @@ public class Application extends Controller {
 
         String testID ;
         testID = "51018419880821006X";
+//        testID = "51018419880821006X";
         final Person retrievedPerson = getPerson(testID);
 
         return ok(views.html.guide.render(getPerson(testID), getExams(retrievedPerson), hasApply(retrievedPerson)));
@@ -79,9 +80,9 @@ public class Application extends Controller {
             //TODO:if cannot read the id card no ,it's shoule be redirect to other page.
         }
 
-        final Person retrievedPerson = getPerson(testID);
+        final Person retrievedPerson = getPerson(idCardNo);
 
-        return ok(views.html.guide.render(getPerson(testID), getExams(retrievedPerson), hasApply(retrievedPerson)));
+        return ok(views.html.guide.render(retrievedPerson, getExams(retrievedPerson), hasApply(retrievedPerson)));
     }
 
     public Result apply(String idCardNo) {
