@@ -23,10 +23,11 @@ import org.hibernate.annotations.GenericGenerator;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="view_examination")
 public class Examination implements Serializable {
-     @Id
-    @GeneratedValue
-    public Long id;
-
+    
+	@Id
+    @GeneratedValue(generator="uuid")
+	@GenericGenerator(name="uuid", strategy="uuid")
+    public String id;
 //	@Id
 //	@GeneratedValue(generator="uuid")
 //    @GenericGenerator(name="uuid", strategy="uuid")
@@ -41,13 +42,13 @@ public class Examination implements Serializable {
 
     public String admin;
 
-    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST},optional=false)
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST})
     @JoinColumn(name = "idCardNo",  insertable = false, updatable = false)
     public Person person;
 
     public Examination(){};
 
-     public Examination(Long id, String idCardNo, String examDepartment,
+     public Examination(String id, String idCardNo, String examDepartment,
                        String examAddress, String examItem, String admin){
         this.id = id;
         this.idCardNo = idCardNo;

@@ -48,18 +48,19 @@ lazy val jbarcode = project
 
 libraryDependencies ++= Seq(
     javaCore,
-    javaJpa.exclude("org.hibernate.javax.persistence", "hibernate-jpa-2.0-api"),
-   "com.hynnet" % "sqljdbc-chs" % "4.2-IDonKnow",
+    //javaJpa.exclude("org.hibernate.javax.persistence", "hibernate-jpa-2.0-api"),
+	javaJpa,
+   //"com.hynnet" % "sqljdbc-chs" % "4.2-IDonKnow",
 	"com.hynnet" % "ojdbc6" % "6.0.0",
 	"com.hynnet" % "jbarcode" % "0.2.8",
     //"mysql" % "mysql-connector-java" % "5.1.18",
     "org.springframework" % "spring-context" % "4.2.5.RELEASE",
     "javax.inject" % "javax.inject" % "1",
-    "javax.persistence" % "persistence-api" % "1.0",
-//    "org.hibernate.javax.persistence" % "hibernate-jpa-2.1-api" % "1.0.0.Final",
-    "org.springframework.data" % "spring-data-jpa" % "1.10.2.RELEASE",
+    //"javax.persistence" % "persistence-api" % "1.0",
+    //"org.hibernate.javax.persistence" % "hibernate-jpa-2.1-api" % "1.0.0.Final",
+    "org.springframework.data" % "spring-data-jpa" % "1.3.2.RELEASE",
     "org.springframework" % "spring-expression" % "3.2.2.RELEASE",
-    "org.hibernate" % "hibernate-entitymanager" % "4.3.0.Final",
+    "org.hibernate" % "hibernate-entitymanager" % "3.6.10.Final",
     "org.mockito" % "mockito-core" % "1.9.5" % "test"
 )
 

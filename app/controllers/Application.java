@@ -39,7 +39,7 @@ public class Application extends Controller {
 
     public Person getPerson(String idCardNo){
         Person person = personRepository.findOne(idCardNo);
-        personRepository.report(idCardNo);
+        //personRepository.report(idCardNo);
         barcode = new Barcode(person.examImage.toString());
         barcode.getBarCode();
         return person;
