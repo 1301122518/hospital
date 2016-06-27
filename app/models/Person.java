@@ -77,7 +77,7 @@ public class Person implements Serializable{
     public String address;
 
     @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
-    public Set<Examination> exams = new HashSet<Examination>();
+    public List<Examination> exams = new ArrayList<Examination>();
 
     @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
     public Set<Application> applies = new HashSet<Application>();

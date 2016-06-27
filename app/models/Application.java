@@ -26,15 +26,14 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name="view_application")
 public class Application implements Serializable {
 
-    /* @Id
+    @Id
     @GeneratedValue
     public Long id;
- */
-	@Id
-	@GeneratedValue(generator="uuid")
-    @GenericGenerator(name="uuid", strategy="uuid")
-	@Column(name="idCardNo")
-    public String id;
+//	@Id
+//	@GeneratedValue(generator="uuid")
+//    @GenericGenerator(name="uuid", strategy="uuid")
+//	@Column(name="idCardNo")
+    public String idCardNo;
 
     public String applyItem;
 
@@ -54,7 +53,7 @@ public class Application implements Serializable {
 
     public Application(){};
 
-    /* public Application(Long id, String idCardNo, String applyItem, String signDoctor,
+     public Application(Long id, String idCardNo, String applyItem, String signDoctor,
                        String applyDepartment, Date applyTime, String examAddress){
         this.id = id;
         this.idCardNo = idCardNo;
@@ -64,7 +63,7 @@ public class Application implements Serializable {
         this.applyTime = applyTime;
         this.examAddress = examAddress;
     }
-	 */
+
 	 
     public Application(String id, String applyItem, String signDoctor,
                        String applyDepartment, String applyTime, String examAddress){

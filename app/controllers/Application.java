@@ -51,8 +51,9 @@ public class Application extends Controller {
         testID = "51018419880821006X";
 //        testID = "51018419880821006X";
         final Person person = getPerson(testID);
+        List<Examination> exams =  person.exams;
 
-        return ok(views.html.guide.render(person, person.getExams(), person.hasApply()));
+        return ok(views.html.guide.render(person, person.exams, person.hasApply()));
     }
 
     public Result guide() {
