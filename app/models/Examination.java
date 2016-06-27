@@ -23,15 +23,15 @@ import org.hibernate.annotations.GenericGenerator;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="view_examination")
 public class Examination implements Serializable {
-    /* @Id
+     @Id
     @GeneratedValue
     public Long id;
- */
-	@Id
-	@GeneratedValue(generator="uuid")
-    @GenericGenerator(name="uuid", strategy="uuid")
-	@Column(name="idCardNo")
-    public String id;
+
+//	@Id
+//	@GeneratedValue(generator="uuid")
+//    @GenericGenerator(name="uuid", strategy="uuid")
+//	@Column(name="idCardNo")
+    public String idCardNo;
 
     public String examDepartment;
 
@@ -41,13 +41,13 @@ public class Examination implements Serializable {
 
     public String admin;
 
-    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST})
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST},optional=false)
     @JoinColumn(name = "idCardNo",  insertable = false, updatable = false)
     public Person person;
 
     public Examination(){};
 
-/*     public Examination(Long id, String idCardNo, String examDepartment,
+     public Examination(Long id, String idCardNo, String examDepartment,
                        String examAddress, String examItem, String admin){
         this.id = id;
         this.idCardNo = idCardNo;
@@ -55,16 +55,16 @@ public class Examination implements Serializable {
         this.examAddress = examAddress;
         this.examItem = examItem;
         this.admin = admin;
-    } */
-	
-	    public Examination(String idCardNo, String examDepartment,
-                       String examAddress, String examItem, String admin){
-        this.id = id;
-        this.examDepartment = examDepartment;
-        this.examAddress = examAddress;
-        this.examItem = examItem;
-        this.admin = admin;
     }
+	
+//	    public Examination(String idCardNo, String examDepartment,
+//                       String examAddress, String examItem, String admin){
+//        this.id = id;
+//        this.examDepartment = examDepartment;
+//        this.examAddress = examAddress;
+//        this.examItem = examItem;
+//        this.admin = admin;
+//    }
 
     public String toString(){
         return this.examItem + this.examDepartment + this.examAddress;

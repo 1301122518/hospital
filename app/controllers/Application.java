@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import models.*;
+import tools.*;
 import play.mvc.*;
 import play.data.DynamicForm;
 import play.data.Form;
@@ -23,6 +24,7 @@ import javax.inject.Singleton;
 public class Application extends Controller {
 
     private final PersonRepository personRepository;
+    private Barcode barcode;
 
     @Inject
     public Application(final PersonRepository personRepository) {
@@ -35,25 +37,25 @@ public class Application extends Controller {
         return ok(views.html.index.render(welcome));
     }
 
+    public Person getPerson(String idCardNo){
+        Person person = personRepository.findOne(idCardNo);
+        personRepository.report(idCardNo);
+        barcode = new Barcode(person.examImage.toString());
+        barcode.getBarCode();
+        return person;
+    }
+
     public Result guideDemo() {
 
-       // String testID = "51018419880821006X";
-		String testID = "510503198901295276";
-//        String testID = "110108199611240188";
+        String testID ;
+        testID = "51018419880821006X";
+//        testID = "51018419880821006X";
+        final Person person = getPerson(testID);
+        List<Examination> exams =  person.exams;
 
-        final Person retrievedPerson = personRepository.findOne(testID);
-        final Iterator examSet = retrievedPerson.exams.iterator();
-        final List<Examination> exams = new ArrayList<Examination>();
-
-        final Integer hasApply = retrievedPerson.applies.size();
-
-        while(examSet.hasNext()){
-            Examination exam = (Examination) examSet.next();
-            exams.add(exam);
-        }
-
-        return ok(views.html.guide.render(retrievedPerson, exams, hasApply));
+        return ok(views.html.guide.render(person, person.exams, person.hasApply()));
     }
+
     public Result guide() {
 
         DynamicForm values = Form.form().bindFromRequest();
@@ -63,18 +65,9 @@ public class Application extends Controller {
             //TODO:if cannot read the id card no ,it's shoule be redirect to other page.
         }
 
-        final Person retrievedPerson = personRepository.findOne(idCardNo);
-        final Iterator examSet = retrievedPerson.exams.iterator();
-        final List<Examination> exams = new ArrayList<Examination>();
+        final Person person = getPerson(idCardNo);
 
-        final Integer hasApply = retrievedPerson.applies.size();
-
-        while(examSet.hasNext()){
-            Examination exam = (Examination) examSet.next();
-            exams.add(exam);
-        }
-
-        return ok(views.html.guide.render(retrievedPerson, exams, hasApply));
+        return ok(views.html.guide.render(person, person.getExams(), person.hasApply()));
     }
 
     public Result apply(String idCardNo) {
