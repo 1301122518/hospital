@@ -48,12 +48,12 @@ public class Application extends Controller {
     public Result guideDemo() {
 
         String testID ;
-        testID = "51018419880821006X";
-//        testID = "51018419880821006X";
+        //testID = "51018419880821006X";
+        testID = "510503198901295276";
         final Person person = getPerson(testID);
         List<Examination> exams =  person.exams;
 
-        return ok(views.html.guide.render(person, person.exams, person.hasApply()));
+        return ok(views.html.guide.render(person, person.getExams(), person.hasApply()));
     }
 
     public Result guide() {

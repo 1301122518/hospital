@@ -121,10 +121,14 @@ public class Person implements Serializable{
 
         final Iterator examSet = this.exams.iterator();
         final List<Examination> exams = new ArrayList<Examination>();
+        int i=0;
 
         while(examSet.hasNext()){
             Examination exam = (Examination) examSet.next();
-            exams.add(exam);
+            if(i%2==0) {
+                exams.add(exam);
+            }
+            i++;
         }
 
         return exams;

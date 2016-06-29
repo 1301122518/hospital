@@ -17,6 +17,9 @@ public class Barcode{
 
     public String codeStr;
 
+//    static public String dirStr = "E:\\projects\\hospital\\public\\images\\photo\\";
+    static public String dirStr = "D:\\hospital\\public\\images\\photo\\";
+
     public Barcode(){};
 
     public Barcode(String codeStr){
@@ -48,7 +51,7 @@ public class Barcode{
     {
         try
         {
-            FileOutputStream localFileOutputStream = new FileOutputStream("D:\\hospital\\public\\images\\photo\\" + paramString1);
+            FileOutputStream localFileOutputStream = new FileOutputStream(dirStr + paramString1);
             ImageUtil.encodeAndWrite(paramBufferedImage, paramString2, localFileOutputStream, 50, 50);
             localFileOutputStream.close();
         }
