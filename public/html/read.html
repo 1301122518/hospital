@@ -58,7 +58,17 @@
     </form>
     </body>
 
-
+<script>
+    var t = 40;
+    function refer(){
+     if(t<=0){
+		window.clearInterval(clear);
+        history.go(-1);
+     }
+        t--;
+    }
+    clear = setInterval("refer()",1000);
+</script>
 <SCRIPT>
 	var  pp ;
 	pp=rdcard.openport();
