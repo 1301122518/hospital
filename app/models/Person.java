@@ -122,13 +122,19 @@ public class Person implements Serializable{
         final Iterator examSet = this.exams.iterator();
         final List<Examination> exams = new ArrayList<Examination>();
         int i=0;
+        boolean inIt = false;
 
         while(examSet.hasNext()){
             Examination exam = (Examination) examSet.next();
-            if(i%2==0) {
+            for(Examination e : exams) {
+                if (exam.id == e.id) {
+                    inIt = true;
+                }
+            }
+            if(!inIt){
                 exams.add(exam);
             }
-            i++;
+            inIt = false;
         }
 
         return exams;
