@@ -38,10 +38,18 @@ public class Application extends Controller {
     }
 
     public Person getPerson(String idCardNo){
-        Person person = personRepository.findOne(idCardNo);
-        //personRepository.report(idCardNo);
-        barcode = new Barcode(person.examImage.toString());
-        barcode.getBarCode();
+
+        Person person;
+
+        try {
+            person = personRepository.findOne(idCardNo);
+            barcode = new Barcode(person.examImage.toString());
+            barcode.getBarCode();
+        }catch(Exception e){
+            person = new Person();
+            person.id = null;
+        }
+
         return person;
     }
 
@@ -50,12 +58,12 @@ public class Application extends Controller {
         String testID =null;
         //testID = "51018419880821006X";
 //        testID = "510503198901295276";
-        if(testID==null){
-            return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
-        }
 
         final Person person = getPerson(testID);
-        List<Examination> exams =  person.exams;
+
+        if(person.id==null){
+            return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
+        }
 
         return ok(views.html.guide.render(person, person.getExams(), person.hasApply()));
     }
@@ -65,11 +73,11 @@ public class Application extends Controller {
         DynamicForm values = Form.form().bindFromRequest();
         String idCardNo = values.data().get("tcardID");
 
-        if(idCardNo==null){
+        final Person person = getPerson(idCardNo);
+
+        if(person.id==null){
             return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
         }
-
-        final Person person = getPerson(idCardNo);
 
         return ok(views.html.guide.render(person, person.getExams(), person.hasApply()));
     }
