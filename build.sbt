@@ -53,7 +53,7 @@ libraryDependencies ++= Seq(
    //"com.hynnet" % "sqljdbc-chs" % "4.2-IDonKnow",
 	"com.hynnet" % "ojdbc6" % "6.0.0",
 	"com.hynnet" % "jbarcode" % "0.2.8",
-    //"mysql" % "mysql-connector-java" % "5.1.18",
+    "mysql" % "mysql-connector-java" % "5.1.18",
     "org.springframework" % "spring-context" % "4.2.5.RELEASE",
     "javax.inject" % "javax.inject" % "1",
     //"javax.persistence" % "persistence-api" % "1.0",

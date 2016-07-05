@@ -47,9 +47,13 @@ public class Application extends Controller {
 
     public Result guideDemo() {
 
-        String testID ;
+        String testID =null;
         //testID = "51018419880821006X";
-        testID = "510503198901295276";
+//        testID = "510503198901295276";
+        if(testID==null){
+            return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
+        }
+
         final Person person = getPerson(testID);
         List<Examination> exams =  person.exams;
 
@@ -62,7 +66,7 @@ public class Application extends Controller {
         String idCardNo = values.data().get("tcardID");
 
         if(idCardNo==null){
-            //TODO:if cannot read the id card no ,it's shoule be redirect to other page.
+            return ok(views.html.disappear.render("hello"));
         }
 
         final Person person = getPerson(idCardNo);

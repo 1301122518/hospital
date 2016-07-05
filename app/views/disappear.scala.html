@@ -1,0 +1,29 @@
+@(info: String)
+
+@main("欢迎来到泸州市人民医院参加体检，祝你身体健康") {
+
+<div id="show-no" align="center">
+    <p id="redirect_info" align="center"></p>
+</div>
+<script type="text/javascript">
+var t=5;//设定跳转的时间
+document.getElementById('show').style.display="block";
+var info = "秒后跳转到首页。";
+var show_id = 'redirect_info';
+var clear;
+
+function refer(){
+    if(t<=0){
+        window.clearInterval(clear);
+        window.history.go(-2);
+    }else{
+		document.getElementById(show_id).innerHTML= "@info"  + "</br></br>" + t + info; // 显示倒计时
+		t--;//本文转自：
+	}
+
+}
+
+ clear = setInterval("refer()",1000);
+
+</script>
+}
