@@ -66,7 +66,7 @@ public class Application extends Controller {
         String idCardNo = values.data().get("tcardID");
 
         if(idCardNo==null){
-            return ok(views.html.disappear.render("hello"));
+            return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
         }
 
         final Person person = getPerson(idCardNo);
