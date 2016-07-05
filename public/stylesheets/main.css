@@ -117,7 +117,7 @@
    left:69%;
 }
 
-#show,#show-apply{
+#show,#show-apply,#show-no{
     display:none;
     position:fixed;
     z-index:999;
@@ -136,6 +136,12 @@
 #show-apply{
    width:380px;
    height:100px;
+   padding:50px 23px 0 35px;
+}
+
+#show-no{
+   width:380px;
+   height:145px;
    padding:50px 23px 0 35px;
 }
 
