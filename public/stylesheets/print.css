@@ -2,7 +2,7 @@
 /* CSS Document */
 
 .print {
-  display: none;
+ display: none;
  color: #000;
  background: none;
 }
@@ -32,21 +32,21 @@
 	margin-right:-10px;
 }
 
-.inline{
-    line-height:24px;
-}
-
 .health-info{
     line-height:43px;
 }
 
-.info-4{
-    display:block;
-    margin-top:-6.3%;
-}
-
 .print-info{
+    float:left;
+    margin-top:-28.8%;
     width:58%;
+	font-size:0.8em;
+	line-height:1.3em;
+}
+.print-examh{
+	font-size:0.7em;
+	letter-spacing:0.2em;
+	padding:2px;
 }
 
 .p1{
@@ -76,6 +76,11 @@
 
 .exam-item td, .apply-item td{
     padding : 4px;
+	font-size:0.5em;
+}
+
+.apply-item td{
+    font-size:19px;
 }
 
 .apply-photo{
@@ -86,4 +91,8 @@
 
 .person-info{
     margin-right : 1.5%;
+}
+
+.print-footer tr{
+	font-size:0.7em;
 }
