@@ -70,7 +70,7 @@
         </td></tr>
 </table><br><br>
 <div class="print" align="center">
-    <input onclick="javascript:print_guide()" style="cursor:hand" type=button value=打印本页 />
+    <input onclick="javascript:print_guide()" style="cursor:hand;margin-bottom:50px;" type=button value=打印本页 />
 </div>
 <div id="show" align="center">
     <p id="redirect_info" align="center"></p>
@@ -109,7 +109,7 @@ function print_guide(){
 
 		LODOP.PRINT_INIT("打印指引单");
 		LODOP.ADD_PRINT_HTM(20,30,"93%","90%",strHtml);
-		LODOP.PREVIEW();
+		//LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
             if (@hasApply){
