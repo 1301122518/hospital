@@ -38,8 +38,7 @@
 
 .print-info{
     float:left;
-    margin-top:-28.8%;
-    width:58%;
+    width:62%;
 	font-size:0.8em;
 	line-height:1.3em;
 }
@@ -75,8 +74,8 @@
 }
 
 .exam-item td, .apply-item td{
-    padding : 4px;
-	font-size:0.5em;
+    padding : 2px;
+	font-size:0.7em;
 }
 
 .apply-item td{

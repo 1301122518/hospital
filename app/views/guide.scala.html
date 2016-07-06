@@ -24,7 +24,9 @@
                 </td>
             </tr>
             <tr class="inline">
-                <td class="print-info"><font size="2">温馨提示:</font><font size="4"><strong>若有采血项目，请先采学再做其他的检查！！！</strong></font>
+                <td class="print-info">
+					<font size="2">温馨提示:</font>
+					<font size="4"><strong>若有采血项目，请先采学再做其他的检查！！！</strong></font>
                     <br/>1、请在早上10：30前空腹采血，采血后用干棉签按压穿刺点3~5分钟，不出血后，将棉签扔到黄色垃圾桶内。
                     <br/>2、孕妇请勿做X线检查，未婚女性勿作妇科检查，经期勿做尿常规检查。
                     <br/>3、妇科检查前请排空小便，妇科超声检查前请保持膀胱充盈。
@@ -109,7 +111,7 @@ function print_guide(){
 
 		LODOP.PRINT_INIT("打印指引单");
 		LODOP.ADD_PRINT_HTM(20,30,"93%","90%",strHtml);
-		LODOP.PREVIEW();
+		//LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
             if (@hasApply){
