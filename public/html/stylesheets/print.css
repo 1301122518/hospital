@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+
+.print {
+ display: none;
+ color: #000;
+ background: none;
+}
+
+.title{
+    margin-bottom:20px;
+}
+
+#head {
+    display:none;
+}
+
+.print-weight{
+ width:70%;
+ padding: 0;
+ margin: 0cm;
+}
+
+.print-weight2{
+ display:block;
+ width: 100%;
+ padding: 0;
+ margin: 5px 0 10px -15px;
+}
+
+.person-info{
+	margin-right:-10px;
+}
+
+.health-info{
+    line-height:43px;
+}
+
+.print-info{
+    float:left;
+    margin-top:-28.8%;
+    width:58%;
+	font-size:0.8em;
+	line-height:1.3em;
+}
+.print-examh{
+	font-size:0.7em;
+	letter-spacing:0.2em;
+	padding:2px;
+}
+
+.p1{
+      display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    margin:0 0 10px 4px;
+}
+.p2{
+      display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.p3{
+   display: block;
+   width:100%;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    margin:15px 10% 20px -5px;
+}
+
+.exam-item td, .apply-item td{
+    padding : 4px;
+	font-size:0.5em;
+}
+
+.apply-item td{
+    font-size:19px;
+}
+
+.apply-photo{
+   position: absolute;
+   top:1.8%;
+   left:77.5%;
+}
+
+.person-info{
+    margin-right : 1.5%;
+}
+
+.print-footer tr{
+	font-size:0.7em;
+}

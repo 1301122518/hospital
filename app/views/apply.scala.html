@@ -62,6 +62,7 @@ var clear;
 function refer(){
     if(t<=0){
 		window.clearInterval(clear);
+		//need to change.
         history.go(-3);
     }
     document.getElementById('redirect_info').innerHTML="申请单开始打印，"+t+"秒后跳转到首页。"; // 显示倒计时

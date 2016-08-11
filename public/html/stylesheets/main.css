@@ -1,0 +1,155 @@
+.index-html{
+    overflow:hidden;
+}
+
+
+.index-main {
+    width: 1024;
+    height: 820px;
+    margin: -8px;
+    text-align: center;
+    font-size: 15px;
+    font-family: 微软雅黑;
+    background:url(../images/hos_index.jpg) no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
+}
+
+.index-logo {
+    font-size: 60px;
+    height: 100px;
+    line-height: 100px;
+    letter-spacing: 10px;
+    color:#3B3B3B;
+}
+
+.index-title{
+    float:left;
+    margin-top:15%;
+    margin-left:40px;
+}
+
+.index-content {
+
+    margin: -75px;
+    width: 70%;
+    height: 400px;
+}
+
+.index-content p {
+
+    float:left;
+    height: 10px;
+    line-height: 10px;
+    font-size: 40px;
+    width:800px;
+    color:#3B3B3B;
+}
+
+.index-card {
+    font-size: 30px;
+    margin: 0px auto;
+    width:55%;
+    height: 80px;
+    letter-spacing: 10px;
+}
+
+.index-card a:link{
+    color:white;
+}
+.index-card a:visited{color:white;}
+.index-card a:hover,a:active
+{
+    color:red;
+}
+
+.index-card-left {
+
+    width:45%;
+    height: 80px;
+    margin:38px;
+    padding-left:12px;
+    line-height:79px;
+    background-color: #5CACEE;
+    float:left;
+    border-radius:15px;
+}
+
+.index-card-right {
+    width:45%;
+    height: 130px;
+    line-height:130px;
+    background-color: #017EC0;
+    float:left;
+    margin-left:10%
+
+}
+
+.footer {
+    color: white;
+    margin-top: 20px;
+}
+
+.exam-item td, .apply-item td{
+    padding : 4px;
+}
+
+.person-info{
+    margin-right : 3.2%;
+}
+
+.inline{
+    line-height:24px;
+}
+
+.person-photo{
+   padding-top : 30px;
+}
+
+.info-4{
+    display:block;
+    margin-top:-1.3%;
+}
+
+.apply-photo{
+   position: absolute;
+   top:52px;
+   left:69%;
+}
+
+#show,#show-apply,#show-no{
+    display:none;
+    position:fixed;
+    z-index:999;
+    width:380px;
+    height:100px;
+    top:30%;
+    left:32%;
+    padding:50px 0 0 12px;
+    color:white;
+    border:2px solid #3b3b3b;
+    border-radius:15px;
+    background-color: #5CACEE;
+    font-size:18px;
+}
+
+#show-apply{
+   width:380px;
+   height:100px;
+   padding:50px 23px 0 35px;
+}
+
+#show-no{
+   width:380px;
+   height:145px;
+   padding:50px 23px 0 35px;
+}
+
+.organzation{
+    padding:20px;
+}
+
+.barcode img{
+   width:150px;
+   height:50px;
+}

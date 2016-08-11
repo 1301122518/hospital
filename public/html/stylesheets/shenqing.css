@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+.title{
+      display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.titleImg{
+      display: block;
+   -webkit-margin-before: -2em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.p1{
+      display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    margin-bottom: -8px;
+}
+.p2{
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: -1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    margin:16px 0 -8px -4px;
+}
+.p3{
+   display: block;
+   width:70%;
+   padding-left:25.1%;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    margin-left:-1px;
+}
+
+.table2{
+   display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    padding-left:31px;
+}
+
