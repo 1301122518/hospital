@@ -70,6 +70,8 @@ public class Person implements Serializable{
 
     public String address;
 
+    public Integer printNumber;
+
     @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
     public List<Examination> exams = new ArrayList<Examination>();
 
@@ -99,7 +101,8 @@ public class Person implements Serializable{
  */
  
   public Person(String id,  String organisation, String name,
-                  String gender, String age, String tel, String marryStatus, Integer examImage,String address){
+                  String gender, String age, String tel,
+                String marryStatus, Integer examImage,String address, Integer printNumber){
         this.id = id;
         this.organization = organisation;
         this.name = name;
@@ -108,7 +111,8 @@ public class Person implements Serializable{
         this.tel = tel;
         this.marryStatus = marryStatus;
         this.examImage = examImage;
-        this.address=address;
+        this.address = address;
+        this.printNumber = printNumber;
     }
 
     public List getExams(){
