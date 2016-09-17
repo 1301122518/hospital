@@ -155,14 +155,14 @@
 }
 
 .print-button{
-    width: 120px;
+    width: 126px;
     height: 60px;
     margin-bottom: 80px;
     padding-left: 12px;
     background-color: #5CACEE;
-    float: c;
     border-radius: 15px;
     color: white;
     font-size: 19px;
     border: none;
+    letter-spacing: 2px;
 }
