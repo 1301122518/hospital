@@ -26,16 +26,10 @@ import javax.persistence.InheritanceType;
 
 import javax.persistence.Table;
 import javax.persistence.FetchType;
-//import javax.persistence.NamedStoredProcedureQuery;
-//import javax.persistence.ParameterMode;
-//import javax.persistence.StoredProcedureParameter;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="view_person")
-//@NamedStoredProcedureQuery(name = "report", procedureName = "person_report",parameters={
-  //  @StoredProcedureParameter(mode = ParameterMode.IN, name = "idCardNo", type = String.class)
-//})
 
 public class Person implements Serializable{
 
@@ -139,17 +133,6 @@ public class Person implements Serializable{
 
         return exams;
     }
-
-//    public Integer hasApply(){
-//        boolean result;
-//
-//        if(this.applies.size() != 0){
-//            result = true;
-//        }else{
-//            result = false;
-//        }
-//        return result;
-//    }
 
     public Integer hasApply(){
         return this.applies.size();
