@@ -1,6 +1,7 @@
 @(person: Person, applies:List[models.Application], tm:Map[String, List[models.Application]])
 
 @main("欢迎来到泸州市人民医院参加体检，祝你身体健康") {
+@for(key <- tm.keySet().toArray){
 <div id="print_apply">
 <div class="title" align="center"><table width="50%" border="0" cellspacing="0" cellpadding="0" class="print-weight2">
     <tr>
@@ -37,7 +38,7 @@
             <th width="20%" align="center" valign="middle">申请时间</th>
             <th width="22%" align="center" valign="middle">体检地点</th>
         </tr>
-        @for(applies <- applies){
+        @for(applies <- tm.get(key)) {
         <tr class="apply-item">
             <td height="50" align="center" valign="middle">@applies.applyItem</td>
             <td align="center" valign="middle">@applies.signDoctor</td>
@@ -49,6 +50,7 @@
     </table>
 </div>
 </div><br>
+}
 <div class="print" align="center">
     <input onclick="print_apply()" class="print-button" style="cursor:hand" type=button value=打印本页 />
 </div>
