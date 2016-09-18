@@ -95,18 +95,11 @@ public class Application extends Controller {
     public Result apply(String idCardNo) {
 
         final Person retrievedPerson = personRepository.findOne(idCardNo);
-        final Iterator applySet = retrievedPerson.applies.iterator();
-        final List<models.Application> applies = new ArrayList<models.Application>();
-
-        while(applySet.hasNext()){
-            models.Application apply = (models.Application) applySet.next();
-            applies.add(apply);
-        }
 
         TreeMap<String, List<models.Application>> tm = new TreeMap<String, List<models.Application>>();
 
-        for(int i = 0;i < retrievedPerson.applies.size(); i++){
-            models.Application app = applies.get(i);
+//        for(int i = 0;i < retrievedPerson.applies.size(); i++){
+          for(models.Application app:retrievedPerson.applies){
             if(tm.containsKey(app.applyDepartment)){
                 ArrayList<models.Application> templist = (ArrayList<models.Application>)tm.get(app.applyDepartment);
                 templist.add(app);
@@ -117,7 +110,7 @@ public class Application extends Controller {
             }
         }
 
-        return ok(views.html.apply.render(retrievedPerson, applies, tm));
+        return ok(views.html.apply.render(retrievedPerson, tm));
     }
 
 }
