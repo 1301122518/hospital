@@ -1,10 +1,6 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 import models.*;
 import tools.*;
@@ -107,7 +103,20 @@ public class Application extends Controller {
             applies.add(apply);
         }
 
-        return ok(views.html.apply.render(retrievedPerson, applies));
+        TreeMap<String, List<models.Application>> tm = new TreeMap<String, List<models.Application>>();
+        for(int i = 0;i < applies.size(); i++){
+            models.Application app = applies.get(i);
+            if(tm.containsKey(app.applyDepartment)){
+                ArrayList<models.Application> templist = (ArrayList<models.Application>)tm.get(app.applyDepartment);
+                templist.add(app);
+            }else{
+                ArrayList<models.Application> templist = new ArrayList<models.Application>();
+                templist.add(app);
+                tm.put(app.applyDepartment, templist);
+            }
+        }
+
+        return ok(views.html.apply.render(retrievedPerson, applies, tm));
     }
 
 }
