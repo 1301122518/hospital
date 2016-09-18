@@ -98,7 +98,6 @@ public class Application extends Controller {
 
         TreeMap<String, List<models.Application>> tm = new TreeMap<String, List<models.Application>>();
 
-//        for(int i = 0;i < retrievedPerson.applies.size(); i++){
           for(models.Application app:retrievedPerson.applies){
             if(tm.containsKey(app.applyDepartment)){
                 ArrayList<models.Application> templist = (ArrayList<models.Application>)tm.get(app.applyDepartment);
