@@ -30,7 +30,8 @@
                     <br/>1、请在早上10：30前空腹采血，采血后用干棉签按压穿刺点3~5分钟，不出血后，将棉签扔到黄色垃圾桶内。
                     <br/>2、孕妇请勿做X线检查，未婚女性勿作妇科检查，经期勿做尿常规检查。
                     <br/>3、妇科检查前请排空小便，妇科超声检查前请保持膀胱充盈。
-                    <br/>4、检查完毕后，请将指引单交回体检测血压处以确认有无漏检项目<br>(未交指引单者可能无法领取体检结果)
+                    <br/>4、腹部彩超需排队,请提前安排好时间。
+                    <br/>5、检查完毕后，请将指引单交回体检测血压处以确认有无漏检项目<br/>(未交指引单者可能无法领取体检结果)
                 </td>
                 <td class="person-photo" align="center"><img src=@routes.Assets.at("images/photo/zp.jpg")></td>
             </tr>
@@ -65,14 +66,15 @@
                 <td width="18%"><strong>总费用:<u>__________</u>元</strong></td>
             </tr>
             <tr>
-                <td colspan="3" valign="top" >备注：1、个人客户请于完成的三个公作日后下午，凭借缴费发票领取报告。<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、团体客户由单位负责人在体检完成的7个工作日后下午，同意领取报告。</td>
+                <td colspan="3" valign="top" >备注：1、个人客户请于完成的三个公作日后下午，凭借缴费发票领取报告。<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、团体客户由单位负责人在体检完成的7个工作日后下午，同意领取报告。<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、若需要修改体检项目，请到体检中心咨询。</td>
             </tr>
         </table>
         </td></tr>
 </table><br><br>
 <div class="print" align="center">
-    <input onclick="javascript:print_guide()" style="cursor:hand;margin-bottom:50px;" type=button value=打印本页 />
+    <input onclick="javascript:print_guide()" class="print-button" style="cursor:hand;margin-bottom:50px;" type=button value=打印本页 />
 </div>
 <div id="show" align="center">
     <p id="redirect_info" align="center"></p>
@@ -90,7 +92,6 @@ function refer(){
     if(t<=0){
         if(go_home)
         {
-             //window.history.go(-2);
 			 window.location.href="http://192.168.23.56/html/index.html";
         }else{
 			 info = "即将为您跳转至申请单打印页，请稍候。"

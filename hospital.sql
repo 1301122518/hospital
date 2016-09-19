@@ -12,6 +12,9 @@ File Encoding         : 65001
 
 Date: 2016-05-01 20:02:36
 */
+
+create database hospital;
+
 use hospital;
 
 SET FOREIGN_KEY_CHECKS=0;

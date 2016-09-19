@@ -26,16 +26,10 @@ import javax.persistence.InheritanceType;
 
 import javax.persistence.Table;
 import javax.persistence.FetchType;
-//import javax.persistence.NamedStoredProcedureQuery;
-//import javax.persistence.ParameterMode;
-//import javax.persistence.StoredProcedureParameter;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="view_person")
-//@NamedStoredProcedureQuery(name = "report", procedureName = "person_report",parameters={
-  //  @StoredProcedureParameter(mode = ParameterMode.IN, name = "idCardNo", type = String.class)
-//})
 
 public class Person implements Serializable{
 
@@ -76,6 +70,8 @@ public class Person implements Serializable{
 
     public String address;
 
+    public Integer printNumber;
+
     @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
     public List<Examination> exams = new ArrayList<Examination>();
 
@@ -105,7 +101,8 @@ public class Person implements Serializable{
  */
  
   public Person(String id,  String organisation, String name,
-                  String gender, String age, String tel, String marryStatus, Integer examImage,String address){
+                  String gender, String age, String tel,
+                String marryStatus, Integer examImage,String address, Integer printNumber){
         this.id = id;
         this.organization = organisation;
         this.name = name;
@@ -114,7 +111,8 @@ public class Person implements Serializable{
         this.tel = tel;
         this.marryStatus = marryStatus;
         this.examImage = examImage;
-        this.address=address;
+        this.address = address;
+        this.printNumber = printNumber;
     }
 
     public List getExams(){
@@ -139,17 +137,6 @@ public class Person implements Serializable{
 
         return exams;
     }
-
-//    public Integer hasApply(){
-//        boolean result;
-//
-//        if(this.applies.size() != 0){
-//            result = true;
-//        }else{
-//            result = false;
-//        }
-//        return result;
-//    }
 
     public Integer hasApply(){
         return this.applies.size();
