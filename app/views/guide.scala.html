@@ -88,7 +88,8 @@ function refer(){
     if(t<=0){
         if(go_home)
         {
-             window.history.go(-2);
+             //window.history.go(-2);
+			 window.location.href="http://192.168.23.55/html/index.html";
         }else{
 			 info = "即将为您跳转至申请单打印页，请稍候。"
 			 document.getElementById(show_id).innerHTML=info;
