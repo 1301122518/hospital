@@ -1,7 +1,7 @@
 <HTML>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-    <link rel="stylesheet" media="print" href="./stylesheets/main.css">
+    <link rel="stylesheet" media="screen" href="./stylesheets/main.css">
     <link rel="stylesheet" media="screen" href="./stylesheets/buttons.css">
     <title>扫描身份证</title>
 </head>
@@ -55,8 +55,13 @@
         </table>
 
         <!--<a name="praPass" href=""><button>打印体检单</button></a>-->
-            <button type="submit" class="button button-glow button-rounded button-raised button-primary">打印体检单</button>
+            <button onclick="dataLoad()" type="submit" class="button button-glow button-rounded button-raised button-primary">打印体检单</button>
     </form>
+
+    <div id="show-no" align="center">
+        <p id="redirect_info" align="center"></p>
+    </div>
+
     </body>
 
 <script>
@@ -117,5 +122,10 @@
 
 <script for="idcard" event="Readed()">
       getinfo_onclick();
+</script>
+<script>
+    function dataLoad(){
+		document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候......." ;// 显示倒计时
+    }
 </script>
 </HTML>
