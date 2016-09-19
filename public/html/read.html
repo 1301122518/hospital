@@ -21,8 +21,8 @@
     <OBJECT
             classid="clsid:F1317711-6BDE-4658-ABAA-39E31D3704D3"
             codebase="SDRdCard.cab#version=1,3,6,1"
-            width=330
-            height=210
+            width=315
+            height=200
             align=center
             hspace=0
             vspace=0
@@ -63,7 +63,8 @@
     function refer(){
      if(t<=0){
 		window.clearInterval(clear);
-        history.go(-1);
+        //history.go(-1);
+		window.location.href="http://192.168.23.56/html/index.html";
      }
         t--;
     }
