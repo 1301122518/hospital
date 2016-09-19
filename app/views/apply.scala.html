@@ -1,7 +1,8 @@
-@(person: Person, applies:List[models.Application])
+@(person: Person, tm:Map[String, List[models.Application]])
 
 @main("欢迎来到泸州市人民医院参加体检，祝你身体健康") {
-<div id="print_apply">
+@for(key <- tm.keySet().toArray){
+<div id="print_apply_@key">
 <div class="title" align="center"><table width="50%" border="0" cellspacing="0" cellpadding="0" class="print-weight2">
     <tr>
         <td width="15%">
@@ -37,9 +38,9 @@
             <th width="20%" align="center" valign="middle">申请时间</th>
             <th width="22%" align="center" valign="middle">体检地点</th>
         </tr>
-        @for(applies <- applies){
+        @for(applies <- tm.get(key)) {
         <tr class="apply-item">
-            <td height="50" align="left" valign="middle">@applies.applyItem</td>
+            <td height="50" align="center" valign="middle">@applies.applyItem</td>
             <td align="center" valign="middle">@applies.signDoctor</td>
             <td align="center" valign="middle">@applies.applyDepartment</td>
             <td align="left" valign="middle">@applies.applyTime</td>
@@ -49,8 +50,9 @@
     </table>
 </div>
 </div><br>
+}
 <div class="print" align="center">
-    <input onclick="print_apply()" style="cursor:hand" type=button value=打印本页 />
+    <input onclick="print_apply()" class="print-button" style="cursor:hand" type=button value=打印本页 />
 </div>
 <div id="show" align="center">
     <p id="redirect_info"></p>
@@ -62,7 +64,6 @@ var clear;
 function refer(){
     if(t<=0){
 		window.clearInterval(clear);
-        //history.go(-3);
 		window.location.href="http://192.168.23.55/html/index.html";
     }
     document.getElementById('redirect_info').innerHTML="申请单开始打印，"+t+"秒后跳转到首页。"; // 显示倒计时
@@ -71,12 +72,16 @@ function refer(){
 
 var LODOP=getLodop(document.getElementById('LODOP_OB'),document.getElementById('LODOP_EM'));
 function print_apply(){
-        var strStyleCSS="<link href='/assets/stylesheets/print.css' type='text/css' rel='stylesheet'>";
-		var strHtml=strStyleCSS+"<body>"+document.getElementById("print_apply").innerHTML+"</body>";
 
 		LODOP.PRINT_INIT("医院申请单");
-		LODOP.ADD_PRINT_HTM(20,30,"93%","90%",strHtml);
-		//LODOP.PREVIEW();
+        @for(key <- tm.keySet().toArray){
+            var strStyleCSS="<link href='/assets/stylesheets/print.css' type='text/css' rel='stylesheet'>";
+		    var strHtml=strStyleCSS+"<body>"+document.getElementById("print_apply_@key").innerHTML+"</body>";
+		    LODOP.ADD_PRINT_HTM(20,30,"93%","90%",strHtml);
+		    LODOP.NewPage();
+		}
+
+        //LODOP.PREVIEW();
 		var is_print = LODOP.PRINT();
         if(is_print){
             document.getElementById('show').style.display="block";

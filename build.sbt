@@ -48,9 +48,9 @@ lazy val jbarcode = project
 
 libraryDependencies ++= Seq(
     javaCore,
-    //javaJpa.exclude("org.hibernate.javax.persistence", "hibernate-jpa-2.0-api"),
+    javaJpa.exclude("org.hibernate.javax.persistence", "hibernate-jpa-2.0-api"),
 	javaJpa,
-   //"com.hynnet" % "sqljdbc-chs" % "4.2-IDonKnow",
+   "com.hynnet" % "sqljdbc-chs" % "4.2-IDonKnow",
 	"com.hynnet" % "ojdbc6" % "6.0.0",
 	"com.hynnet" % "jbarcode" % "0.2.8",
     "mysql" % "mysql-connector-java" % "5.1.18",

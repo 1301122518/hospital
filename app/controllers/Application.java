@@ -1,10 +1,6 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 import models.*;
 import tools.*;
@@ -56,13 +52,20 @@ public class Application extends Controller {
     public Result guideDemo() {
 
         String testID =null;
-//        testID = "51018419880821006X";
-        testID = "510503198901295276";
+        testID = "51018419880821006X";
+//        testID = "510503198901295276";
 
         final Person person = getPerson(testID);
 
         if(person.id==null){
             return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
+        }
+
+        if(person.printNumber==0){
+            person.printNumber++;
+            personRepository.save(person);
+        }else {
+            return ok(views.html.disappear.render("您的档案已经打印，不能二次打印。"));
         }
 
         return ok(views.html.guide.render(person, person.getExams(), person.hasApply()));
@@ -79,21 +82,34 @@ public class Application extends Controller {
             return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
         }
 
+        if(person.printNumber==0){
+            person.printNumber++;
+            personRepository.save(person);
+        }else {
+            return ok(views.html.disappear.render("您的档案已经打印，不能二次打印。"));
+        }
+
         return ok(views.html.guide.render(person, person.getExams(), person.hasApply()));
     }
 
     public Result apply(String idCardNo) {
 
         final Person retrievedPerson = personRepository.findOne(idCardNo);
-        final Iterator applySet = retrievedPerson.applies.iterator();
-        final List<models.Application> applies = new ArrayList<models.Application>();
 
-        while(applySet.hasNext()){
-            models.Application apply = (models.Application) applySet.next();
-            applies.add(apply);
+        TreeMap<String, List<models.Application>> tm = new TreeMap<String, List<models.Application>>();
+
+          for(models.Application app:retrievedPerson.applies){
+            if(tm.containsKey(app.applyDepartment)){
+                ArrayList<models.Application> templist = (ArrayList<models.Application>)tm.get(app.applyDepartment);
+                templist.add(app);
+            }else{
+                ArrayList<models.Application> templist = new ArrayList<models.Application>();
+                templist.add(app);
+                tm.put(app.applyDepartment, templist);
+            }
         }
 
-        return ok(views.html.apply.render(retrievedPerson, applies));
+        return ok(views.html.apply.render(retrievedPerson, tm));
     }
 
 }
