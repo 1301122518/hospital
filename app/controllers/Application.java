@@ -52,8 +52,8 @@ public class Application extends Controller {
     public Result guideDemo() {
 
         String testID =null;
-//        testID = "51018419880821006X";
-        testID = "510503198901295276";
+        testID = "51018419880821006X";
+//        testID = "510503198901295276";
 
         final Person person = getPerson(testID);
 
@@ -61,7 +61,7 @@ public class Application extends Controller {
             return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
         }
 
-        if(person.printNumber==null){
+        if(person.printNumber==0){
             person.printNumber = 1;
             personRepository.save(person);
         }else {
