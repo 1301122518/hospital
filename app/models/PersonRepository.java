@@ -4,14 +4,14 @@
 package models;
 
 import org.springframework.data.repository.CrudRepository;
-//import org.springframework.data.repository.Query;
 import org.springframework.data.jpa.repository.Query;
-//import org.springframework.data.jpa.repository.query.Procedure;
-//import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import javax.inject.Named;
 import javax.inject.Singleton;
+
+// 存储过程和参数需要的类
+//import org.springframework.data.jpa.repository.query.Procedure;
+//import org.springframework.data.repository.query.Param;
 
 @Named
 @Singleton
