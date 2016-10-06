@@ -43,7 +43,7 @@ public class Examination implements Serializable {
     public String admin;
 
     @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST})
-    @JoinColumn(name = "idCardNo",  insertable = false, updatable = false)
+    @JoinColumn(name = "idCardNo",  referencedColumnName="idCardNo", insertable = false, updatable = false)
     public Person person;
 
     public Examination(){};

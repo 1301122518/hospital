@@ -30,10 +30,7 @@ public class Application implements Serializable {
     @GeneratedValue(generator="uuid")
 	@GenericGenerator(name="uuid", strategy="uuid")
     public String id;
-//	@Id
-//	@GeneratedValue(generator="uuid")
-//    @GenericGenerator(name="uuid", strategy="uuid")
-//	@Column(name="idCardNo")
+
     public String idCardNo;
 
     public String applyItem;
@@ -49,7 +46,7 @@ public class Application implements Serializable {
     public String examAddress;
 
     @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST})
-    @JoinColumn(name = "idCardNo", insertable = false, updatable = false)
+    @JoinColumn(name = "idCardNo",  referencedColumnName="idCardNo", insertable = false, updatable = false)
     public Person person;
 
     public Application(){};

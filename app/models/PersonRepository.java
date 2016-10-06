@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import javax.inject.Named;
 import javax.inject.Singleton;
+import java.util.List;
 
 // 存储过程和参数需要的类
 //import org.springframework.data.jpa.repository.query.Procedure;
