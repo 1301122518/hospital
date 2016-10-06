@@ -94,7 +94,7 @@ public class Application extends Controller {
 
     public Result apply(String idCardNo) {
 
-        final Person retrievedPerson = personRepository.findOne(idCardNo);
+        final Person retrievedPerson = personRepository.findByIdCardNo(idCardNo);
 
         TreeMap<String, List<models.Application>> tm = new TreeMap<String, List<models.Application>>();
 
