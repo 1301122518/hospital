@@ -33,15 +33,16 @@ import javax.persistence.FetchType;
 
 public class Person implements Serializable{
 
-//    @Id
-//    @GeneratedValue
-//    public Long ;
-
     @Id
     @GeneratedValue(generator="uuid")
     @GenericGenerator(name="uuid", strategy="uuid")
-    @Column(name="idCardNo")
     public String id;
+
+//    @Id
+//    @GeneratedValue(generator="uuid")
+//    @GenericGenerator(name="uuid", strategy="uuid")
+//    @Column(name="idCardNo")
+    public String idCardNo;
 
     public String organization;
 
@@ -100,10 +101,11 @@ public class Person implements Serializable{
     }
  */
  
-  public Person(String id,  String organisation, String name,
+  public Person(String id, String idCardNo, String organisation, String name,
                   String gender, String age, String tel,
                 String marryStatus, Integer examImage,String address, Integer printNumber){
         this.id = id;
+        this.idCardNo = idCardNo;
         this.organization = organisation;
         this.name = name;
         this.gender = gender;

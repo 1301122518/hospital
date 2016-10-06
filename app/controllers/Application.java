@@ -38,7 +38,7 @@ public class Application extends Controller {
         Person person;
 
         try {
-            person = personRepository.findOne(idCardNo);
+            person = personRepository.findByIdCardNo(idCardNo);
             barcode = new Barcode(person.examImage.toString());
             barcode.getBarCode();
         }catch(Exception e){
@@ -53,20 +53,21 @@ public class Application extends Controller {
 
         String testID =null;
         testID = "51018419880821006X";
+//        testID = "1";
 //        testID = "510503198901295276";
 
         final Person person = getPerson(testID);
 
-        if(person.id==null){
-            return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
-        }
+//        if(person.id==null){
+//            return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
+//        }
 
-        if(person.printNumber==0){
-            person.printNumber = 1;
-            personRepository.save(person);
-        }else {
-            return ok(views.html.disappear.render("您的档案已经打印，不能二次打印。"));
-        }
+//        if(person.printNumber==0){
+//            person.printNumber = 1;
+//            personRepository.save(person);
+//        }else {
+//            return ok(views.html.disappear.render("您的档案已经打印，不能二次打印。"));
+//        }
 
         return ok(views.html.guide.render(person, person.exams, person.hasApply()));
     }
