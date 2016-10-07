@@ -44,10 +44,7 @@ public class Examination implements Serializable {
     @GeneratedValue(generator="uuid")
 	@GenericGenerator(name="uuid", strategy="uuid")
     public String id;
-//	@Id
-//	@GeneratedValue(generator="uuid")
-//    @GenericGenerator(name="uuid", strategy="uuid")
-//	@Column(name="idCardNo")
+
     public String idCardNo;
 
     public String examDepartment;
@@ -57,10 +54,6 @@ public class Examination implements Serializable {
     public String examItem;
 
     public String admin;
-
-    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST})
-    @JoinColumn(name = "idCardNo",  referencedColumnName="idCardNo", insertable = false, updatable = false)
-    public Person person;
 
     public Examination(){};
 
@@ -74,16 +67,12 @@ public class Examination implements Serializable {
         this.admin = admin;
     }
 	
-//	    public Examination(String idCardNo, String examDepartment,
-//                       String examAddress, String examItem, String admin){
-//        this.id = id;
-//        this.examDepartment = examDepartment;
-//        this.examAddress = examAddress;
-//        this.examItem = examItem;
-//        this.admin = admin;
-//    }
-
     public String toString(){
         return this.examItem + this.examDepartment + this.examAddress;
     }
+
+//    hibernate自动一对多关联
+//    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST})
+//    @JoinColumn(name = "idCardNo",  referencedColumnName="idCardNo", insertable = false, updatable = false)
+//    public Person person;
 }

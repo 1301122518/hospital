@@ -63,19 +63,20 @@ public class Application extends Controller {
 
         final Person person = getPerson(testID);
 
-//        if(person.id==null){
-//            return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
-//        }
+        if(person.id==null){
+            return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
+        }
 
-//        if(person.printNumber==0){
-//            person.printNumber = 1;
-//            personRepository.save(person);
-//        }else {
-//            return ok(views.html.disappear.render("您的档案已经打印，不能二次打印。"));
-//        }
+        if(person.printNumber==0){
+            person.printNumber = 1;
+            personRepository.save(person);
+        }else {
+            return ok(views.html.disappear.render("您的档案已经打印，不能二次打印。"));
+        }
         List<Examination> exams = examRepository.findExams(person.idCardNo);
+        List<models.Application> applies = applyRepository.findApplies(person.idCardNo);
 
-        return ok(views.html.guide.render(person, exams, person.hasApply()));
+        return ok(views.html.guide.render(person, exams, applies.size()));
     }
 
     public Result guide() {
@@ -96,7 +97,10 @@ public class Application extends Controller {
             return ok(views.html.disappear.render("您的档案已经打印，不能二次打印。"));
         }
 
-        return ok(views.html.guide.render(person, person.exams, person.hasApply()));
+        List<Examination> exams = examRepository.findExams(person.idCardNo);
+        List<models.Application> applies = applyRepository.findApplies(person.idCardNo);
+
+        return ok(views.html.guide.render(person, exams, applies.size()));
     }
 
     public Result apply(String idCardNo) {

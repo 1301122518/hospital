@@ -38,10 +38,6 @@ public class Person implements Serializable{
     @GenericGenerator(name="uuid", strategy="uuid")
     public String id;
 
-//    @Id
-//    @GeneratedValue(generator="uuid")
-//    @GenericGenerator(name="uuid", strategy="uuid")
-//    @Column(name="idCardNo")
     public String idCardNo;
 
     public String organization;
@@ -56,52 +52,15 @@ public class Person implements Serializable{
 
     public String marryStatus;
 
-    //public String examID;
-
-   // public String examImage;
-	public Integer examImage;
-
-    //public String applyID;
-
-    //public String applyImage;
-
-    //public Integer cost;
-
-    //public Integer allCost;
+    public Integer examImage;
 
     public String address;
 
     public Integer printNumber;
 
-    @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
-    public List<Examination> exams = new ArrayList<Examination>();
-
-    @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
-    public Set<Application> applies = new HashSet<Application>();
-
     public Person(){};
 
-/*     public Person(String id,  String organisation, String name,
-                  String gender, Integer age, String tel, String marryStatus, String examID,
-                  String examImage, String applyID, String applyImage, Integer cost, Integer allCost,String address){
-        this.id = id;
-        this.organisation = organisation;
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-        this.tel = tel;
-        this.marryStatus = marryStatus;
-        this.examID = examID;
-        this.examImage = examImage;
-        this.applyID = applyID;
-        this.applyImage = applyImage;
-        this.cost = cost;
-        this.allCost = allCost;
-        this.address=address;
-    }
- */
- 
-  public Person(String id, String idCardNo, String organisation, String name,
+    public Person(String id, String idCardNo, String organisation, String name,
                   String gender, String age, String tel,
                 String marryStatus, Integer examImage,String address, Integer printNumber){
         this.id = id;
@@ -117,35 +76,26 @@ public class Person implements Serializable{
         this.printNumber = printNumber;
     }
 
-    public List getExams(){
-
-        final Iterator examSet = this.exams.iterator();
-        final List<Examination> exams = new ArrayList<Examination>();
-        int i=0;
-        boolean inIt = false;
-
-        while(examSet.hasNext()){
-            Examination exam = (Examination) examSet.next();
-            for(Examination e : exams) {
-                if (exam.id == e.id) {
-                    inIt = true;
-                }
-            }
-            if(!inIt){
-                exams.add(exam);
-            }
-            inIt = false;
-        }
-
-        return exams;
-    }
-
-    public Integer hasApply(){
-        return this.applies.size();
-    }
-
     public String toString(){
         return this.id + "  " + this.name;
     }
 
+    /*
+    指引单上的一些属性信息，没有使用到，在这里先注释。
+    病人对指引单，签字单的一对多方法因为都用到了SQL原生代码，
+    所以将其注释。
+
+    public String examID;
+    public String examImage;
+    public String applyID;
+    public String applyImage;
+    public Integer cost;
+    public Integer allCost;
+
+    @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
+    public List<Examination> exams = new ArrayList<Examination>();
+
+    @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
+    public Set<Application> applies = new HashSet<Application>();
+    */
 }

@@ -56,31 +56,16 @@ public class Application implements Serializable {
 
     public String applyDepartment;
 
-    //public Date applyTime;
 
 	public String applyTime;
+    /*
+     *  applyTime本该是Date类型，医院默认是String类型。
+     */
 	
     public String examAddress;
 
-    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST})
-    @JoinColumn(name = "idCardNo",  referencedColumnName="idCardNo", insertable = false, updatable = false)
-    public Person person;
-
     public Application(){};
 
-	/*
-     public Application(Long id, String idCardNo, String applyItem, String signDoctor,
-                       String applyDepartment, Date applyTime, String examAddress){
-        this.id = id;
-        this.idCardNo = idCardNo;
-        this.applyItem = applyItem;
-        this.signDoctor = signDoctor;
-        this.applyDepartment = applyDepartment;
-        this.applyTime = applyTime;
-        this.examAddress = examAddress;
-    }
-*/
-	 
     public Application(String id, String idCardNo, String applyItem, String signDoctor,
                        String applyDepartment, String applyTime, String examAddress){
         this.id = id;
@@ -95,4 +80,11 @@ public class Application implements Serializable {
     public String toString(){
         return this.applyItem + "  " + this.signDoctor;
     }
+
+/*
+一对多关联
+ */
+//    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.PERSIST})
+//    @JoinColumn(name = "idCardNo",  referencedColumnName="idCardNo", insertable = false, updatable = false)
+//    public Person person;
 }
