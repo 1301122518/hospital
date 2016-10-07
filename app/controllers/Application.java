@@ -20,11 +20,13 @@ import javax.inject.Singleton;
 public class Application extends Controller {
 
     private final PersonRepository personRepository;
+    private final ExaminationRepository examRepository;
     private Barcode barcode;
 
     @Inject
-    public Application(final PersonRepository personRepository) {
+    public Application(final PersonRepository personRepository, final ExaminationRepository examRepository) {
         this.personRepository = personRepository;
+        this.examRepository = examRepository;
     }
 
     public Result index() {
@@ -67,8 +69,9 @@ public class Application extends Controller {
 //        }else {
 //            return ok(views.html.disappear.render("您的档案已经打印，不能二次打印。"));
 //        }
+        List<Examination> exams = examRepository.findExams(person.idCardNo);
 
-        return ok(views.html.guide.render(person, person.exams, person.hasApply()));
+        return ok(views.html.guide.render(person, exams, person.hasApply()));
     }
 
     public Result guide() {
