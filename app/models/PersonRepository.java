@@ -27,7 +27,7 @@ public interface PersonRepository extends CrudRepository<Person, String>  {
     //@Procedure(name="report")
     //void report(@Param("idCardNo")String idCardNo);
 
-    @Query("select person from Person person where person.idCardNo = ?1 and person.printNumber = 0")
+    @Query("select person from Person person where person.idCardNo = ?1 and person.printNumber = null")
     Person findByIdCardNo(String idCardNo);
 
     @Query(name="exams",

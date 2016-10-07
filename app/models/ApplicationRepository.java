@@ -16,11 +16,18 @@ import java.util.List;
 @Repository
 public interface ApplicationRepository extends CrudRepository<Application, String>  {
 
+
+//    @Query(name="applies",
+//            value = "select distinct view_application.* " +
+//                    "from view_person join view_application " +
+//                    "on view_application.idCardNo = view_person.idCardNo " +
+//                    "where view_person.idCardNo = ?1 and YEAR(view_application.applyTime) = YEAR(NOW())",
+//            nativeQuery = true)
     @Query(name="applies",
             value = "select distinct view_application.* " +
             "from view_person join view_application " +
             "on view_application.idCardNo = view_person.idCardNo " +
-            "where view_person.idCardNo = ?1 and YEAR(view_application.applyTime) = YEAR(NOW())",
+            "where view_person.idCardNo = ?1",
             nativeQuery = true)
     List<Application> findApplies(String idCardNo);
 
