@@ -21,12 +21,16 @@ public class Application extends Controller {
 
     private final PersonRepository personRepository;
     private final ExaminationRepository examRepository;
+    private final ApplicationRepository applyRepository;
     private Barcode barcode;
 
     @Inject
-    public Application(final PersonRepository personRepository, final ExaminationRepository examRepository) {
+    public Application(final PersonRepository personRepository,
+                       final ExaminationRepository examRepository,
+                       final ApplicationRepository applyRepository ) {
         this.personRepository = personRepository;
         this.examRepository = examRepository;
+        this.applyRepository = applyRepository;
     }
 
     public Result index() {
@@ -97,11 +101,12 @@ public class Application extends Controller {
 
     public Result apply(String idCardNo) {
 
-        final Person retrievedPerson = personRepository.findByIdCardNo(idCardNo);
+        Person person = personRepository.findByIdCardNo(idCardNo);
+        List<models.Application> applies = applyRepository.findApplies(idCardNo);
 
         TreeMap<String, List<models.Application>> tm = new TreeMap<String, List<models.Application>>();
 
-          for(models.Application app:retrievedPerson.applies){
+          for(models.Application app:applies){
             if(tm.containsKey(app.applyDepartment)){
                 ArrayList<models.Application> templist = (ArrayList<models.Application>)tm.get(app.applyDepartment);
                 templist.add(app);
@@ -112,7 +117,7 @@ public class Application extends Controller {
             }
         }
 
-        return ok(views.html.apply.render(retrievedPerson, tm));
+        return ok(views.html.apply.render(person, tm));
     }
 
 }

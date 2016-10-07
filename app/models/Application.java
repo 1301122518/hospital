@@ -17,6 +17,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.SqlResultSetMapping;
+import javax.persistence.EntityResult;
+import javax.persistence.FieldResult;
+import javax.persistence.ColumnResult;
 
 import javax.persistence.GeneratedValue;
 import org.hibernate.annotations.GenericGenerator;
@@ -24,6 +28,22 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="view_application")
+@SqlResultSetMapping(name="applies",
+        entities = {
+                @EntityResult(entityClass = Examination.class, fields={
+                        @FieldResult(name="id", column="id"),
+                        @FieldResult(name="idCardNo", column="idCardNo"),
+                        @FieldResult(name="applyItem", column="applyItem"),
+                        @FieldResult(name="signDoctor", column="signDoctor"),
+                        @FieldResult(name="applyDepartment", column="applyDepartment"),
+                        @FieldResult(name="applyTime", column="applyTime"),
+                        @FieldResult(name="examAddress", column="examAddress")
+                })
+        },
+        columns = {
+                @ColumnResult(name="item_name")
+        }
+)
 public class Application implements Serializable {
 
     @Id
