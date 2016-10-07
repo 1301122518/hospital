@@ -36,9 +36,6 @@ import org.hibernate.annotations.GenericGenerator;
                         @FieldResult(name="examItem", column="examItem"),
                         @FieldResult(name="admin", column="admin"),
                 })
-        },
-        columns = {
-                @ColumnResult(name="item_name")
         }
 )
 public class Examination implements Serializable {

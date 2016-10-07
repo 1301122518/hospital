@@ -39,9 +39,6 @@ import org.hibernate.annotations.GenericGenerator;
                         @FieldResult(name="applyTime", column="applyTime"),
                         @FieldResult(name="examAddress", column="examAddress")
                 })
-        },
-        columns = {
-                @ColumnResult(name="item_name")
         }
 )
 public class Application implements Serializable {
