@@ -68,7 +68,7 @@
             <tr>
                 <td colspan="3" valign="top" >备注：1、个人客户请于完成的三个公作日后下午，凭借缴费发票领取报告。<br/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、团体客户由单位负责人在体检完成的7个工作日后下午，同意领取报告。<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、若需要修改体检项目，请到体检中心咨询。</td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、若需要修改体检项目，请到体检中心咨询。</td>
             </tr>
         </table>
         </td></tr>
@@ -83,6 +83,21 @@
     <p id="redirect_info_apply" align="center"></p>
 </div>
 <script type="text/javascript">
+define(['pace'], function(pace){
+    pace.start({
+        document: true
+    });
+});
+
+paceOptions = {
+  ajax: false,
+  document: false,
+  eventLag: false,
+  elements: {
+    selectors: ['#print_guide']
+  }
+};
+
 var t=5;//设定跳转的时间
 var go_home = true;
 var info = "";

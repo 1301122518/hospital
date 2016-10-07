@@ -3,6 +3,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
     <link rel="stylesheet" media="screen" href="./stylesheets/main.css">
     <link rel="stylesheet" media="screen" href="./stylesheets/buttons.css">
+    <link rel="stylesheet" media="screen" href="./stylesheets/pace.css">
+    <script type="text/javascript" src="./javascripts/pace.min.js" ></script>
     <title>扫描身份证</title>
 </head>
 <style type="text/css">
@@ -125,7 +127,8 @@
 </script>
 <script>
     function dataLoad(){
-		document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候......." ;// 显示倒计时
+		<!--document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候......." ;// 显示倒计时-->
+		Pace.restart();
     }
 </script>
 </HTML>
