@@ -3,8 +3,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
     <link rel="stylesheet" media="screen" href="./stylesheets/main.css">
     <link rel="stylesheet" media="screen" href="./stylesheets/buttons.css">
-    <link rel="stylesheet" media="screen" href="./stylesheets/pace.css">
-    <script type="text/javascript" src="./javascripts/pace.min.js" ></script>
     <title>扫描身份证</title>
 </head>
 <style type="text/css">
@@ -60,7 +58,7 @@
             <button onclick="dataLoad()" type="submit" class="button button-glow button-rounded button-raised button-primary">打印体检单</button>
     </form>
 
-    <div id="show-no" align="center">
+    <div id="show" align="center">
         <p id="redirect_info" align="center"></p>
     </div>
 
@@ -126,9 +124,29 @@
       getinfo_onclick();
 </script>
 <script>
-    function dataLoad(){
-		<!--document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候......." ;// 显示倒计时-->
-		Pace.restart();
+
+   var t=0;
+
+    function refer(){
+        if( t % 5 == 1){
+    		document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候." ;
+        }else if(t % 5 == 2){
+            document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候.." ;
+        }else if(t % 5 == 3){
+            document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候..." ;
+        }else if(t % 5 == 4){
+            document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候...." ;
+        }else {
+            document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候....." ;
+        }
+        t++;
     }
+
+    function dataLoad(){
+		document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候......." ;// 显示倒计时
+		document.getElementById('show').style.display = "block";
+		setInterval("refer()",2000);
+    }
+
 </script>
 </HTML>
