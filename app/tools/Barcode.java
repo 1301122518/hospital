@@ -18,7 +18,7 @@ public class Barcode{
     public String codeStr;
 
 //    static public String dirStr = "E:\\projects\\hospital\\public\\images\\photo\\";
-    static public String dirStr = "E:\\hospital\\public\\images\\photo\\";
+    static public String dirStr = "D:\\hospital\\public\\images\\photo\\";
 
     public Barcode(){};
 
