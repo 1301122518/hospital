@@ -34,7 +34,6 @@ public class Application extends Controller {
     }
 
     public Result index() {
-
         String welcome = "欢迎来泸州市人民医院参加体检。";
         return ok(views.html.index.render(welcome));
     }
@@ -93,7 +92,9 @@ public class Application extends Controller {
         List<Examination> exams = examRepository.findExams(idCardNo);
         List<models.Application> applies = applyRepository.findApplies(idCardNo);
 
-        personRepository.savePerson(person.id);
+        if(applies.size() == 0){
+            personRepository.savePerson(person.id);
+        }
 
         return ok(views.html.guide.render(person, exams, applies.size()));
     }
@@ -116,6 +117,7 @@ public class Application extends Controller {
             }
         }
 
+        personRepository.savePerson(person.id);
         return ok(views.html.apply.render(person, tm));
     }
 
