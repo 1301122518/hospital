@@ -27,7 +27,7 @@ public class Application extends Controller {
     @Inject
     public Application(final PersonRepository personRepository,
                        final ExaminationRepository examRepository,
-                       final ApplicationRepository applyRepository ) {
+                       final ApplicationRepository applyRepository) {
         this.personRepository = personRepository;
         this.examRepository = examRepository;
         this.applyRepository = applyRepository;
@@ -87,18 +87,13 @@ public class Application extends Controller {
         final Person person = getPerson(idCardNo);
 
         if(person.id==null){
-            return ok(views.html.disappear.render("没有您的档案，请联系工作人员。"));
-        }
-
-        if(person.printNumber==null){
-            person.printNumber=1;
-            personRepository.save(person);
-        }else {
-            return ok(views.html.disappear.render("您的档案已经打印，不能二次打印。"));
+            return ok(views.html.disappear.render("没有您的档案，或者您的档案已经被打印,不能进行二次打印，请联系相关工作人员。"));
         }
 
         List<Examination> exams = examRepository.findExams(idCardNo);
         List<models.Application> applies = applyRepository.findApplies(idCardNo);
+
+        personRepository.savePerson(person.id);
 
         return ok(views.html.guide.render(person, exams, applies.size()));
     }

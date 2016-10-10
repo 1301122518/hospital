@@ -5,6 +5,8 @@ package models;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Repository;
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -27,15 +29,13 @@ public interface PersonRepository extends CrudRepository<Person, String>  {
     //@Procedure(name="report")
     //void report(@Param("idCardNo")String idCardNo);
 
-    @Query("select person from Person person where person.idCardNo = ?1 and person.printNumber = null")
+    @Query("select person from Person person where person.idCardNo = ?1")
     Person findByIdCardNo(String idCardNo);
 
-    @Query(name="exams",
-            value = "select distinct view_examination.* " +
-            " from view_person join view_examination " +
-            "on view_examination.idCardNo = view_person.idCardNo " +
-            "where view_person.idCardNo = ?1 and YEAR(view_examination.applyTime) = YEAR(NOW())",
+    @Modifying
+    @Transactional
+    @Query(name="printed",
+           value="update view_send set printNumber = 1 where id = ?1",
             nativeQuery = true)
-    List<Examination> findExams(String idCardNo);
-
+    void savePerson(String id);
 }

@@ -29,7 +29,7 @@ import org.hibernate.annotations.GenericGenerator;
 @SqlResultSetMapping(name="exams",
         entities = {
                 @EntityResult(entityClass = Examination.class, fields={
-                        @FieldResult(name="id", column="id"),
+                    @FieldResult(name="id", column="id"),
                         @FieldResult(name="idCardNo", column="idCardNo"),
                         @FieldResult(name="examDepartment", column="examDepartment"),
                         @FieldResult(name="examAddress", column="examAddress"),

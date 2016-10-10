@@ -30,7 +30,6 @@ import javax.persistence.FetchType;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="view_person")
-
 public class Person implements Serializable{
 
     @Id
