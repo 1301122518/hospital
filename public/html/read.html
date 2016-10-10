@@ -17,8 +17,11 @@
 <br/>
 <br/>
 <br/>
+    <div id="show-dataloding" align="center" style="z-index:99;">
+        <p id="redirect_info" align="center"></p>
+    </div>
    <center>
-       <p ><font size="7" id="tResult">请将身份证放至读卡区</font></p>
+       <p><font size="7" id="tResult">请将身份证放至读卡区</font></p>
     <OBJECT
             classid="clsid:F1317711-6BDE-4658-ABAA-39E31D3704D3"
             codebase="SDRdCard.cab#version=1,3,6,1"
@@ -58,9 +61,7 @@
             <button onclick="dataLoad()" type="submit" class="button button-glow button-rounded button-raised button-primary">打印体检单</button>
     </form>
 
-    <div id="show" align="center">
-        <p id="redirect_info" align="center"></p>
-    </div>
+
 
     </body>
 
@@ -144,7 +145,7 @@
 
     function dataLoad(){
 		document.getElementById('redirect_info').innerHTML= "数据正在读取中，请稍候......." ;// 显示倒计时
-		document.getElementById('show').style.display = "block";
+		document.getElementById('show-dataloding').style.display = "block";
 		setInterval("refer()",2000);
     }
 
